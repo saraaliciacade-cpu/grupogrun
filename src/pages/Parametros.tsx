@@ -108,7 +108,6 @@ export default function Parametros() {
                 <CardHeader className="space-y-4">
                   <div>
                     <CardTitle>Parámetros</CardTitle>
-                    <CardDescription>Segmentos</CardDescription>
                   </div>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div className="flex flex-wrap items-center gap-2">

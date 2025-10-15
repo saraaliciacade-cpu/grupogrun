@@ -9,7 +9,6 @@ export default function Segmentos() {
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
               <CardTitle>Configuración</CardTitle>
-              <CardDescription>Segmentos</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Contenido de segmentos...</p>

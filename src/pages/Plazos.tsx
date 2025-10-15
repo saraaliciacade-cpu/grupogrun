@@ -9,7 +9,6 @@ export default function Plazos() {
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
               <CardTitle>Configuración</CardTitle>
-              <CardDescription>Plazos</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Contenido de plazos...</p>

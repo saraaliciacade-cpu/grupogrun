@@ -9,7 +9,6 @@ export default function Permisos() {
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
               <CardTitle>Seguridad</CardTitle>
-              <CardDescription>Permisos</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Contenido de permisos...</p>

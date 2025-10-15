@@ -13,7 +13,6 @@ export default function ApisExternas() {
         <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
               <CardTitle>Seguridad</CardTitle>
-              <CardDescription>Apis Externas</CardDescription>
             </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid gap-4 md:grid-cols-2">

@@ -68,7 +68,6 @@ export default function Objetos() {
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
               <CardTitle>Seguridad</CardTitle>
-              <CardDescription>Objetos</CardDescription>
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <Button variant="grun" size="sm">
