@@ -26,7 +26,7 @@ export default function Parametros() {
             <TabsContent value="segmentos" className="space-y-4">
               <Card className="grun-shadow-lg border-border/50">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0">
-                  <CardTitle className="text-foreground">Parámetros Segmentos</CardTitle>
+                  <CardTitle>Parámetros Segmentos</CardTitle>
                   <div className="flex gap-2">
                     <Button style={{ backgroundColor: '#21532d', color: 'white' }} className="hover:bg-[#1a4224]">
                       Agregar

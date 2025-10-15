@@ -8,7 +8,7 @@ export default function Bancos() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle className="text-foreground">Gestión de Bancos</CardTitle>
+              <CardTitle>Gestión de Bancos</CardTitle>
               <CardDescription>Administrar entidades bancarias</CardDescription>
             </CardHeader>
             <CardContent>

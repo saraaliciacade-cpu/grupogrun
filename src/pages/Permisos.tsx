@@ -8,7 +8,7 @@ export default function Permisos() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle className="text-foreground">Gestión de Permisos</CardTitle>
+              <CardTitle>Gestión de Permisos</CardTitle>
               <CardDescription>Administrar permisos de usuarios y roles</CardDescription>
             </CardHeader>
             <CardContent>

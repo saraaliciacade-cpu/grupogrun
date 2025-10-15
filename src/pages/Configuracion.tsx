@@ -18,7 +18,7 @@ export default function Configuracion() {
       <div className="p-8 space-y-8">
         <Card className="grun-shadow-lg border-border/50">
           <CardHeader>
-            <CardTitle className="text-foreground">Secciones de Configuración</CardTitle>
+            <CardTitle>Secciones de Configuración</CardTitle>
             <CardDescription>Accede a las diferentes opciones de configuración del sistema</CardDescription>
           </CardHeader>
           <CardContent>
@@ -30,7 +30,7 @@ export default function Configuracion() {
                   className="h-auto justify-between p-4 border-border/50 hover:border-primary/30 hover:bg-accent/50"
                 >
                   <div className="text-left">
-                    <div className="font-semibold text-foreground">{section.title}</div>
+                    <div className="font-semibold text-title">{section.title}</div>
                     <div className="text-sm text-muted-foreground">{section.description}</div>
                   </div>
                   <ChevronRight className="h-5 w-5 text-muted-foreground" />

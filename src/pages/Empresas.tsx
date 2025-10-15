@@ -8,7 +8,7 @@ export default function Empresas() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle className="text-foreground">Gestión de Empresas</CardTitle>
+              <CardTitle>Gestión de Empresas</CardTitle>
               <CardDescription>Administrar empresas del grupo</CardDescription>
             </CardHeader>
             <CardContent>

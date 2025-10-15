@@ -8,7 +8,7 @@ export default function Segmentos() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle className="text-foreground">Segmentos de Clientes</CardTitle>
+              <CardTitle>Segmentos de Clientes</CardTitle>
               <CardDescription>Administrar segmentos y categorías de clientes</CardDescription>
             </CardHeader>
             <CardContent>

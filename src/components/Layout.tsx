@@ -56,7 +56,7 @@ export function Layout({ children }: LayoutProps) {
           <div className="sticky top-0 z-10 flex justify-between items-center p-4 bg-background border-b">
             <div className="flex items-center gap-4">
               <SidebarTrigger />
-              <h1 className="text-2xl font-semibold text-foreground">{getPageTitle()}</h1>
+              <h1 className="text-2xl font-semibold text-title">{getPageTitle()}</h1>
             </div>
             <Button
               variant="ghost"

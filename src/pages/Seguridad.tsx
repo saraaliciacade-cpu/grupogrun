@@ -18,7 +18,7 @@ export default function Seguridad() {
         <div className="p-8 space-y-8">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle className="text-foreground">Módulos de Seguridad</CardTitle>
+              <CardTitle>Módulos de Seguridad</CardTitle>
               <CardDescription>Administra la seguridad y permisos del sistema</CardDescription>
             </CardHeader>
             <CardContent>
@@ -30,7 +30,7 @@ export default function Seguridad() {
                     className="h-auto justify-between p-4 border-border/50 hover:border-primary/30 hover:bg-accent/50"
                   >
                     <div className="text-left">
-                      <div className="font-semibold text-foreground">{section.title}</div>
+                      <div className="font-semibold text-title">{section.title}</div>
                       <div className="text-sm text-muted-foreground">{section.description}</div>
                     </div>
                     <ChevronRight className="h-5 w-5 text-muted-foreground" />
@@ -43,7 +43,7 @@ export default function Seguridad() {
           {/* API Configuration Example */}
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle className="text-foreground">API Externas - Ejemplo</CardTitle>
+              <CardTitle>API Externas - Ejemplo</CardTitle>
               <CardDescription>Configuración de servicios de integración</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">

@@ -8,7 +8,7 @@ export default function Objetos() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle className="text-foreground">Gestión de Objetos</CardTitle>
+              <CardTitle>Gestión de Objetos</CardTitle>
               <CardDescription>Administrar objetos del sistema</CardDescription>
             </CardHeader>
             <CardContent>

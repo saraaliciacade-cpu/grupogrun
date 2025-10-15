@@ -8,7 +8,7 @@ export default function Clientes() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle className="text-foreground">Gestión de Clientes</CardTitle>
+              <CardTitle>Gestión de Clientes</CardTitle>
               <CardDescription>Administrar clientes del sistema</CardDescription>
             </CardHeader>
             <CardContent>

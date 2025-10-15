@@ -94,7 +94,7 @@ export default function Dashboard() {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle className="text-foreground flex items-center gap-3">
+                  <CardTitle className="flex items-center gap-3">
                     {showAllActivity && (
                       <Button 
                         variant="ghost" 
@@ -148,7 +148,7 @@ export default function Dashboard() {
           {!showAllActivity && (
             <Card className="grun-shadow-md border-border/50">
               <CardHeader>
-                <CardTitle className="text-foreground">Acciones Rápidas</CardTitle>
+                <CardTitle>Acciones Rápidas</CardTitle>
                 <CardDescription>Operaciones frecuentes</CardDescription>
               </CardHeader>
               <CardContent>

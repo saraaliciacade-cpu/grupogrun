@@ -11,7 +11,7 @@ export default function ApisExternas() {
       <div className="p-6 space-y-6 max-w-6xl">
         <Card className="grun-shadow-lg border-border/50">
           <CardHeader>
-            <CardTitle className="text-foreground">APIs Externas</CardTitle>
+            <CardTitle>APIs Externas</CardTitle>
             <CardDescription>Configuración de servicios de integración</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
