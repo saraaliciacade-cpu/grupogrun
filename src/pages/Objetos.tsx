@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Search, Edit } from "lucide-react";
+import { Search, Edit, Plus, Download } from "lucide-react";
 import { useState } from "react";
 const objetosData = [{
   id: 1,
@@ -44,21 +44,24 @@ export default function Objetos() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              
-              <div className="flex gap-4 mt-4">
-                <Button variant="grun" size="sm">
-                  Agregar
-                </Button>
-                <Button variant="grun" size="sm">
-                  Exportar
-                </Button>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="relative flex-1 max-w-md">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <Input placeholder="Objeto-Descripcion" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="pl-10" />
+                </div>
+                <div className="flex gap-2">
+                  <Button variant="grun" size="sm">
+                    <Plus className="h-4 w-4" />
+                    Agregar
+                  </Button>
+                  <Button variant="grun" size="sm">
+                    <Download className="h-4 w-4" />
+                    Exportar
+                  </Button>
+                </div>
               </div>
             </CardHeader>
             <CardContent>
-              <div className="mb-4 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Objeto-Descripcion" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="pl-10" />
-              </div>
               
               <div className="border rounded-lg">
                 <Table>
