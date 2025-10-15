@@ -1,5 +1,5 @@
 import { Layout } from "@/components/Layout";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
@@ -110,7 +110,10 @@ export default function ParametrosGenerales() {
         <div className="p-6 space-y-6">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader className="space-y-4">
-              <CardTitle>Parámetros Generales</CardTitle>
+              <div>
+                <CardTitle>Parámetros</CardTitle>
+                <CardDescription>Parámetros Generales</CardDescription>
+              </div>
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <Button variant="grun" size="sm" onClick={() => setAddDialogOpen(true)}>
