@@ -16,14 +16,14 @@ export function Layout({ children }: LayoutProps) {
   const getPageTitle = () => {
     const path = location.pathname;
     if (path === "/") return "Inicio";
-    if (path === "/parametros/generales") return "Parámetros Generales";
+    if (path === "/parametros/generales") return "Parámetros";
     if (path === "/cotizacion") return "Cotización";
-    if (path === "/configuracion/plazos") return "Plazos";
-    if (path === "/configuracion/segmentos") return "Segmentos";
-    if (path === "/seguridad/objetos") return "Objetos";
-    if (path === "/seguridad/permisos") return "Permisos";
-    if (path === "/seguridad/apis-externas") return "Apis Externas";
-    if (path === "/parametros/segmentos") return "Parámetros - Segmentos";
+    if (path === "/configuracion/plazos") return "Configuración";
+    if (path === "/configuracion/segmentos") return "Configuración";
+    if (path === "/seguridad/objetos") return "Seguridad";
+    if (path === "/seguridad/permisos") return "Seguridad";
+    if (path === "/seguridad/apis-externas") return "Seguridad";
+    if (path === "/parametros/segmentos") return "Parámetros";
     if (path === "/bancos") return "Bancos";
     if (path === "/empresas") return "Empresas";
     if (path === "/clientes") return "Clientes";

@@ -12,7 +12,7 @@ export default function ApisExternas() {
       <div className="p-6 space-y-6 max-w-6xl">
         <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle>Seguridad</CardTitle>
+              <CardTitle>Apis Externas</CardTitle>
             </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid gap-4 md:grid-cols-2">

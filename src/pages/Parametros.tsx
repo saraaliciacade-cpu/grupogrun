@@ -107,7 +107,7 @@ export default function Parametros() {
               <Card className="grun-shadow-lg border-border/50">
                 <CardHeader className="space-y-4">
                   <div>
-                    <CardTitle>Parámetros</CardTitle>
+                    <CardTitle>Segmentos</CardTitle>
                   </div>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div className="flex flex-wrap items-center gap-2">
