@@ -4,8 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Pencil, Filter, Plus, Download, Copy } from "lucide-react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Pencil, Filter, Plus, Download, Copy, X } from "lucide-react";
+import { useState } from "react";
+
 export default function Parametros() {
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [anoFilter, setAnoFilter] = useState("");
+  
+  const clearFilters = () => {
+    setAnoFilter("");
+  };
   const parametrosData = [{
     tipo: "Auto",
     anoVigencia: 2025,
@@ -42,6 +53,12 @@ export default function Parametros() {
     tasaFija: "50,00",
     uva: "50,00"
   }];
+
+  const filteredData = parametrosData.filter((item) => {
+    if (anoFilter === "") return true;
+    const ano = parseInt(anoFilter);
+    return ano >= item.anoDesde && ano <= item.anoHasta;
+  });
   return <Layout>
       <div className="min-h-screen bg-background">
         <div className="p-6 space-y-6">
@@ -78,7 +95,7 @@ export default function Parametros() {
                           <SelectItem value="todos">(Todos)</SelectItem>
                         </SelectContent>
                       </Select>
-                      <Button variant="ghost" size="icon">
+                      <Button variant="ghost" size="icon" onClick={() => setFilterOpen(true)}>
                         <Filter className="h-4 w-4" />
                       </Button>
                     </div>
@@ -98,7 +115,7 @@ export default function Parametros() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {parametrosData.map((row, index) => <TableRow key={index}>
+                      {filteredData.map((row, index) => <TableRow key={index}>
                           <TableCell className="font-medium">{row.tipo}</TableCell>
                           <TableCell className="text-center">{row.anoVigencia}</TableCell>
                           <TableCell className="text-center">{row.anoDesde}</TableCell>
@@ -118,6 +135,35 @@ export default function Parametros() {
             </TabsContent>
           </Tabs>
         </div>
+
+        {/* Filter Sidebar */}
+        <Sheet open={filterOpen} onOpenChange={setFilterOpen}>
+          <SheetContent side="right" className="w-[400px] bg-muted/50">
+            <SheetHeader>
+              <div className="flex items-center justify-between">
+                <SheetTitle>Filtros</SheetTitle>
+                <Button variant="ghost" size="icon" onClick={() => setFilterOpen(false)}>
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+            </SheetHeader>
+            <div className="space-y-4 py-6">
+              <div className="space-y-2">
+                <Label htmlFor="filter-ano">Año</Label>
+                <Input
+                  id="filter-ano"
+                  type="number"
+                  value={anoFilter}
+                  onChange={(e) => setAnoFilter(e.target.value)}
+                  placeholder="Buscar por año..."
+                />
+              </div>
+              <Button variant="grun" className="w-full" onClick={clearFilters}>
+                Ver Todos Los Parámetros
+              </Button>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </Layout>;
 }

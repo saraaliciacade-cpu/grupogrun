@@ -1,12 +1,13 @@
 import { Layout } from "@/components/Layout";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
-import { Pencil, Filter, Plus, Download, Trash2 } from "lucide-react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Pencil, Filter, Plus, Download, Trash2, X } from "lucide-react";
 import { useState } from "react";
 
 export default function ParametrosGenerales() {
@@ -14,23 +15,32 @@ export default function ParametrosGenerales() {
     {
       parametro: "Empresa Email",
       descripcion: "empresa email",
-      valor: "soporte@grupogrun.com.ar"
+      valor: "soporte@grupogrun.com.ar",
+      empresa: "Grupo Grun"
     },
     {
       parametro: "Empresa Teléfono",
       descripcion: "Teléfono Contacto",
-      valor: "+542615604934"
+      valor: "+542615604934",
+      empresa: "Grupo Grun"
     },
     {
       parametro: "Smtp Auth",
       descripcion: "Autentificar Smtp ?",
-      valor: "1"
+      valor: "1",
+      empresa: "Grupo Grun"
     }
   ]);
 
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [filters, setFilters] = useState({
+    descripcion: "",
+    empresa: "",
+    valor: ""
+  });
   const [newParametro, setNewParametro] = useState({
     parametro: "",
     descripcion: "",
@@ -38,7 +48,7 @@ export default function ParametrosGenerales() {
   });
 
   const handleAdd = () => {
-    setParametrosData([...parametrosData, newParametro]);
+    setParametrosData([...parametrosData, { ...newParametro, empresa: "Grupo Grun" }]);
     setNewParametro({ parametro: "", descripcion: "", valor: "" });
     setAddDialogOpen(false);
   };
@@ -56,12 +66,24 @@ export default function ParametrosGenerales() {
     setDeleteDialogOpen(true);
   };
 
+  const clearFilters = () => {
+    setFilters({ descripcion: "", empresa: "", valor: "" });
+  };
+
+  const filteredData = parametrosData.filter((item) => {
+    const matchDescripcion = filters.descripcion === "" || item.descripcion.toLowerCase().includes(filters.descripcion.toLowerCase());
+    const matchEmpresa = filters.empresa === "" || item.empresa?.toLowerCase().includes(filters.empresa.toLowerCase());
+    const matchValor = filters.valor === "" || item.valor.toLowerCase().includes(filters.valor.toLowerCase());
+    return matchDescripcion && matchEmpresa && matchValor;
+  });
+
   return (
     <Layout>
       <div className="min-h-screen bg-background">
         <div className="p-6 space-y-6">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader className="space-y-4">
+              <CardTitle>Parámetros Generales</CardTitle>
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <Button variant="grun" size="sm" onClick={() => setAddDialogOpen(true)}>
@@ -78,8 +100,10 @@ export default function ParametrosGenerales() {
                     type="text" 
                     placeholder="Descripción" 
                     className="w-[200px]"
+                    value={filters.descripcion}
+                    onChange={(e) => setFilters({ ...filters, descripcion: e.target.value })}
                   />
-                  <Button variant="ghost" size="icon">
+                  <Button variant="ghost" size="icon" onClick={() => setFilterOpen(true)}>
                     <Filter className="h-4 w-4" />
                   </Button>
                 </div>
@@ -96,7 +120,7 @@ export default function ParametrosGenerales() {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {parametrosData.map((row, index) => (
+                  {filteredData.map((row, index) => (
                     <TableRow key={index}>
                       <TableCell className="font-medium">{row.parametro}</TableCell>
                       <TableCell>{row.descripcion}</TableCell>
@@ -179,6 +203,43 @@ export default function ParametrosGenerales() {
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
+
+        {/* Filter Sidebar */}
+        <Sheet open={filterOpen} onOpenChange={setFilterOpen}>
+          <SheetContent side="right" className="w-[400px] bg-muted/50">
+            <SheetHeader>
+              <div className="flex items-center justify-between">
+                <SheetTitle>Filtros</SheetTitle>
+                <Button variant="ghost" size="icon" onClick={() => setFilterOpen(false)}>
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+            </SheetHeader>
+            <div className="space-y-4 py-6">
+              <div className="space-y-2">
+                <Label htmlFor="filter-empresa">Empresa</Label>
+                <Input
+                  id="filter-empresa"
+                  value={filters.empresa}
+                  onChange={(e) => setFilters({ ...filters, empresa: e.target.value })}
+                  placeholder="Buscar por empresa..."
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="filter-valor">Valor</Label>
+                <Input
+                  id="filter-valor"
+                  value={filters.valor}
+                  onChange={(e) => setFilters({ ...filters, valor: e.target.value })}
+                  placeholder="Buscar por valor..."
+                />
+              </div>
+              <Button variant="grun" className="w-full" onClick={clearFilters}>
+                Ver Todos Los Parámetros
+              </Button>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </Layout>
   );
