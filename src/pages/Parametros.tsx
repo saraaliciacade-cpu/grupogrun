@@ -28,13 +28,13 @@ export default function Parametros() {
                 <CardHeader className="flex flex-row items-center justify-between space-y-0">
                   <CardTitle className="text-foreground">Parámetros Segmentos</CardTitle>
                   <div className="flex gap-2">
-                    <Button className="bg-[#21532d] hover:bg-[#1a4224] text-white">
+                    <Button style={{ backgroundColor: '#21532d', color: 'white' }} className="hover:bg-[#1a4224]">
                       Agregar
                     </Button>
-                    <Button className="bg-[#21532d] hover:bg-[#1a4224] text-white">
+                    <Button style={{ backgroundColor: '#21532d', color: 'white' }} className="hover:bg-[#1a4224]">
                       Exportar
                     </Button>
-                    <Button className="bg-[#21532d] hover:bg-[#1a4224] text-white">
+                    <Button style={{ backgroundColor: '#21532d', color: 'white' }} className="hover:bg-[#1a4224]">
                       Copiar Segmentos
                     </Button>
                   </div>
