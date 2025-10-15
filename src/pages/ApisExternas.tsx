@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function ApisExternas() {
   return (
@@ -33,6 +34,36 @@ export default function ApisExternas() {
                 <Input 
                   id="api-url" 
                   placeholder="https://demo.api.infoauto.com.ar" 
+                  className="border-primary/30 focus:border-primary" 
+                />
+              </div>
+              <div className="space-y-2 md:col-span-2">
+                <Label htmlFor="auth-type" className="text-foreground font-medium">Tipo de Autenticación</Label>
+                <Select>
+                  <SelectTrigger id="auth-type" className="border-primary/30 focus:border-primary">
+                    <SelectValue placeholder="Seleccionar tipo" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="basic">Basic Auth</SelectItem>
+                    <SelectItem value="bearer">Bearer Token</SelectItem>
+                    <SelectItem value="api-key">API Key</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="username" className="text-foreground font-medium">Usuario</Label>
+                <Input 
+                  id="username" 
+                  placeholder="Usuario de API" 
+                  className="border-primary/30 focus:border-primary" 
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="password" className="text-foreground font-medium">Contraseña</Label>
+                <Input 
+                  id="password" 
+                  type="password"
+                  placeholder="Contraseña de API" 
                   className="border-primary/30 focus:border-primary" 
                 />
               </div>
