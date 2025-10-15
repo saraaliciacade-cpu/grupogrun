@@ -54,7 +54,7 @@ export default function ParametrosGenerales() {
   });
 
   const handleAdd = () => {
-    setParametrosData([...parametrosData, { ...newParametro, empresa: "Grupo Grun" }]);
+    setParametrosData([{ ...newParametro, empresa: "Grupo Grun" }, ...parametrosData]);
     setNewParametro({ parametro: "", descripcion: "", valor: "" });
     setAddDialogOpen(false);
   };
