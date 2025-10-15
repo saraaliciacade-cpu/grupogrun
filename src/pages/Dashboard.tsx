@@ -123,7 +123,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {(showAllActivity ? allActivities : allActivities.slice(0, 4)).map((activity, index) => (
+                {(showAllActivity ? allActivities : allActivities.slice(0, 3)).map((activity, index) => (
                   <div key={index} className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors">
                     <div className="flex items-center gap-4">
                       <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
