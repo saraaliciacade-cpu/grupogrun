@@ -22,8 +22,8 @@ export function AppSidebar() {
   return (
     <Sidebar className="border-r border-sidebar-border" style={{ backgroundColor: "rgb(33, 83, 45)" }}>
       <SidebarContent className="pt-4">
-        <div className="px-6 mb-6">
-          <img src={logoGrun} alt="Banco Grupo Grün" className="w-32 h-auto mx-auto" />
+        <div className="px-6 mb-8">
+          <img src={logoGrun} alt="Banco Grupo Grün" className="w-40 h-auto mx-auto" />
         </div>
         
         <SidebarGroup>
@@ -52,9 +52,9 @@ export function AppSidebar() {
                     <Settings className="h-5 w-5" />
                     <span>Configuración</span>
                   </div>
-                  <ChevronRight className={`h-4 w-4 transition-transform ${configOpen ? 'rotate-90' : ''}`} />
+                  <ChevronRight className={`h-4 w-4 transition-transform duration-300 ${configOpen ? 'rotate-90' : ''}`} />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="space-y-1">
+                <CollapsibleContent className="space-y-1 overflow-hidden transition-all duration-300 ease-in-out data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
                       <NavLink 
@@ -88,9 +88,9 @@ export function AppSidebar() {
                     <Shield className="h-5 w-5" />
                     <span>Seguridad</span>
                   </div>
-                  <ChevronRight className={`h-4 w-4 transition-transform ${securityOpen ? 'rotate-90' : ''}`} />
+                  <ChevronRight className={`h-4 w-4 transition-transform duration-300 ${securityOpen ? 'rotate-90' : ''}`} />
                 </CollapsibleTrigger>
-                <CollapsibleContent className="space-y-1">
+                <CollapsibleContent className="space-y-1 overflow-hidden transition-all duration-300 ease-in-out data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
                       <NavLink 
