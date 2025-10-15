@@ -5,6 +5,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Pencil, Filter, Plus, Download, Copy, X, ArrowLeftCircle, Search } from "lucide-react";
@@ -12,12 +13,23 @@ import { useState } from "react";
 
 export default function Parametros() {
   const [filterOpen, setFilterOpen] = useState(false);
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [anoFilter, setAnoFilter] = useState("");
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [editData, setEditData] = useState({
+    tipo: "",
+    anoVigencia: 0,
+    anoDesde: 0,
+    anoHasta: 0,
+    tasaFija: "",
+    uva: ""
+  });
   
   const clearFilters = () => {
     setAnoFilter("");
   };
-  const parametrosData = [{
+  
+  const [parametrosData, setParametrosData] = useState([{
     tipo: "Auto",
     anoVigencia: 2025,
     anoDesde: 2025,
@@ -52,7 +64,31 @@ export default function Parametros() {
     anoHasta: 2014,
     tasaFija: "50,00",
     uva: "50,00"
-  }];
+  }]);
+
+  const openEditDialog = (index: number) => {
+    setSelectedIndex(index);
+    const param = parametrosData[index];
+    setEditData({
+      tipo: param.tipo,
+      anoVigencia: param.anoVigencia,
+      anoDesde: param.anoDesde,
+      anoHasta: param.anoHasta,
+      tasaFija: param.tasaFija,
+      uva: param.uva
+    });
+    setEditDialogOpen(true);
+  };
+
+  const handleEdit = () => {
+    if (selectedIndex !== null) {
+      const updatedData = [...parametrosData];
+      updatedData[selectedIndex] = editData;
+      setParametrosData(updatedData);
+      setEditDialogOpen(false);
+      setSelectedIndex(null);
+    }
+  };
 
   const filteredData = parametrosData.filter((item) => {
     if (anoFilter === "") return true;
@@ -123,7 +159,7 @@ export default function Parametros() {
                           <TableCell className="text-center">{row.tasaFija}</TableCell>
                           <TableCell className="text-center">{row.uva}</TableCell>
                           <TableCell className="text-center">
-                            <Button variant="ghost" size="icon">
+                            <Button variant="ghost" size="icon" onClick={() => openEditDialog(index)}>
                               <Pencil className="h-4 w-4" />
                             </Button>
                           </TableCell>
@@ -135,6 +171,76 @@ export default function Parametros() {
             </TabsContent>
           </Tabs>
         </div>
+
+        {/* Edit Dialog */}
+        <Dialog open={editDialogOpen} onOpenChange={setEditDialogOpen}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Editar Parámetro</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <Label htmlFor="edit-tipo">Tipo</Label>
+                <Input
+                  id="edit-tipo"
+                  value={editData.tipo}
+                  onChange={(e) => setEditData({ ...editData, tipo: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="edit-anoVigencia">Año Vigencia</Label>
+                <Input
+                  id="edit-anoVigencia"
+                  type="number"
+                  value={editData.anoVigencia}
+                  onChange={(e) => setEditData({ ...editData, anoVigencia: parseInt(e.target.value) })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="edit-anoDesde">Año Desde</Label>
+                <Input
+                  id="edit-anoDesde"
+                  type="number"
+                  value={editData.anoDesde}
+                  onChange={(e) => setEditData({ ...editData, anoDesde: parseInt(e.target.value) })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="edit-anoHasta">Año Hasta</Label>
+                <Input
+                  id="edit-anoHasta"
+                  type="number"
+                  value={editData.anoHasta}
+                  onChange={(e) => setEditData({ ...editData, anoHasta: parseInt(e.target.value) })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="edit-tasaFija">Tasa Fija</Label>
+                <Input
+                  id="edit-tasaFija"
+                  value={editData.tasaFija}
+                  onChange={(e) => setEditData({ ...editData, tasaFija: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="edit-uva">Uva</Label>
+                <Input
+                  id="edit-uva"
+                  value={editData.uva}
+                  onChange={(e) => setEditData({ ...editData, uva: e.target.value })}
+                />
+              </div>
+            </div>
+            <DialogFooter>
+              <Button variant="outline" onClick={() => setEditDialogOpen(false)}>
+                Cancelar
+              </Button>
+              <Button variant="grun" onClick={handleEdit}>
+                Confirmar
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
 
         {/* Filter Sidebar */}
         <Sheet open={filterOpen} onOpenChange={setFilterOpen}>

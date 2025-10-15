@@ -33,6 +33,7 @@ export default function ParametrosGenerales() {
   ]);
 
   const [addDialogOpen, setAddDialogOpen] = useState(false);
+  const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [filterOpen, setFilterOpen] = useState(false);
@@ -46,11 +47,37 @@ export default function ParametrosGenerales() {
     descripcion: "",
     valor: ""
   });
+  const [editData, setEditData] = useState({
+    parametro: "",
+    descripcion: "",
+    valor: ""
+  });
 
   const handleAdd = () => {
     setParametrosData([...parametrosData, { ...newParametro, empresa: "Grupo Grun" }]);
     setNewParametro({ parametro: "", descripcion: "", valor: "" });
     setAddDialogOpen(false);
+  };
+
+  const openEditDialog = (index: number) => {
+    setSelectedIndex(index);
+    const param = parametrosData[index];
+    setEditData({
+      parametro: param.parametro,
+      descripcion: param.descripcion,
+      valor: param.valor
+    });
+    setEditDialogOpen(true);
+  };
+
+  const handleEdit = () => {
+    if (selectedIndex !== null) {
+      const updatedData = [...parametrosData];
+      updatedData[selectedIndex] = { ...updatedData[selectedIndex], ...editData };
+      setParametrosData(updatedData);
+      setEditDialogOpen(false);
+      setSelectedIndex(null);
+    }
   };
 
   const handleDelete = () => {
@@ -130,7 +157,7 @@ export default function ParametrosGenerales() {
                       <TableCell>{row.valor}</TableCell>
                       <TableCell className="text-center">
                         <div className="flex items-center justify-center gap-2">
-                          <Button variant="ghost" size="icon">
+                          <Button variant="ghost" size="icon" onClick={() => openEditDialog(index)}>
                             <Pencil className="h-4 w-4" />
                           </Button>
                           <Button variant="ghost" size="icon" onClick={() => openDeleteDialog(index)}>
@@ -184,6 +211,49 @@ export default function ParametrosGenerales() {
               </Button>
               <Button variant="grun" onClick={handleAdd}>
                 Guardar
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+
+        {/* Edit Dialog */}
+        <Dialog open={editDialogOpen} onOpenChange={setEditDialogOpen}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Editar Parámetro</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <Label htmlFor="edit-parametro">Parámetro</Label>
+                <Input
+                  id="edit-parametro"
+                  value={editData.parametro}
+                  onChange={(e) => setEditData({ ...editData, parametro: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="edit-descripcion">Descripción</Label>
+                <Input
+                  id="edit-descripcion"
+                  value={editData.descripcion}
+                  onChange={(e) => setEditData({ ...editData, descripcion: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="edit-valor">Valor</Label>
+                <Input
+                  id="edit-valor"
+                  value={editData.valor}
+                  onChange={(e) => setEditData({ ...editData, valor: e.target.value })}
+                />
+              </div>
+            </div>
+            <DialogFooter>
+              <Button variant="outline" onClick={() => setEditDialogOpen(false)}>
+                Cancelar
+              </Button>
+              <Button variant="grun" onClick={handleEdit}>
+                Confirmar
               </Button>
             </DialogFooter>
           </DialogContent>
