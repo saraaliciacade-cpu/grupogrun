@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Pencil, Filter, Plus, Download, Copy, X, ArrowLeft } from "lucide-react";
+import { Pencil, Filter, Plus, Download, Copy, X, ArrowLeft, Search } from "lucide-react";
 import { useState } from "react";
 
 export default function Parametros() {
@@ -142,12 +142,9 @@ export default function Parametros() {
             <SheetHeader>
               <div className="flex items-center justify-between">
                 <SheetTitle>Filtros</SheetTitle>
-                <Button variant="ghost" size="icon" onClick={() => setFilterOpen(false)}>
-                  <X className="h-4 w-4" />
-                </Button>
               </div>
             </SheetHeader>
-            <div className="space-y-4 py-6">
+            <div className="space-y-6 py-6">
               <div className="space-y-2">
                 <Label htmlFor="filter-ano">Año</Label>
                 <Input
@@ -158,10 +155,12 @@ export default function Parametros() {
                   placeholder="Buscar por año..."
                 />
               </div>
-              <Button variant="grun" className="w-full" onClick={clearFilters}>
-                <ArrowLeft className="h-4 w-4" />
-                Volver a ver todos los parámetros
-              </Button>
+              <div className="pt-4">
+                <Button variant="grun" className="w-full" onClick={clearFilters}>
+                  <ArrowLeft className="h-4 w-4" />
+                  Click Acá para volver a ver todos los Parámetros
+                </Button>
+              </div>
             </div>
           </SheetContent>
         </Sheet>

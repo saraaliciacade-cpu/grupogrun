@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { Pencil, Filter, Plus, Download, Trash2, X, ArrowLeft } from "lucide-react";
+import { Pencil, Filter, Plus, Download, Trash2, X, ArrowLeft, Search } from "lucide-react";
 import { useState } from "react";
 
 export default function ParametrosGenerales() {
@@ -96,13 +96,16 @@ export default function ParametrosGenerales() {
                   </Button>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Input 
-                    type="text" 
-                    placeholder="Descripción" 
-                    className="w-[200px]"
-                    value={filters.descripcion}
-                    onChange={(e) => setFilters({ ...filters, descripcion: e.target.value })}
-                  />
+                  <div className="relative flex items-center">
+                    <Search className="absolute left-3 h-4 w-4 text-muted-foreground" />
+                    <Input 
+                      type="text" 
+                      placeholder="Descripción" 
+                      className="w-[200px] pl-9"
+                      value={filters.descripcion}
+                      onChange={(e) => setFilters({ ...filters, descripcion: e.target.value })}
+                    />
+                  </div>
                   <Button variant="ghost" size="icon" onClick={() => setFilterOpen(true)}>
                     <Filter className="h-4 w-4" />
                   </Button>
@@ -210,12 +213,9 @@ export default function ParametrosGenerales() {
             <SheetHeader>
               <div className="flex items-center justify-between">
                 <SheetTitle>Filtros</SheetTitle>
-                <Button variant="ghost" size="icon" onClick={() => setFilterOpen(false)}>
-                  <X className="h-4 w-4" />
-                </Button>
               </div>
             </SheetHeader>
-            <div className="space-y-4 py-6">
+            <div className="space-y-6 py-6">
               <div className="space-y-2">
                 <Label htmlFor="filter-empresa">Empresa</Label>
                 <Input
@@ -234,10 +234,12 @@ export default function ParametrosGenerales() {
                   placeholder="Buscar por valor..."
                 />
               </div>
-              <Button variant="grun" className="w-full" onClick={clearFilters}>
-                <ArrowLeft className="h-4 w-4" />
-                Volver a ver todos los parámetros
-              </Button>
+              <div className="pt-4">
+                <Button variant="grun" className="w-full" onClick={clearFilters}>
+                  <ArrowLeft className="h-4 w-4" />
+                  Click Acá para volver a ver todos los Parámetros
+                </Button>
+              </div>
             </div>
           </SheetContent>
         </Sheet>
