@@ -13,7 +13,7 @@ export default function Seguridad() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="p-6 space-y-6 max-w-6xl">
+      <div className="p-8 space-y-8">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
               <CardTitle className="text-foreground">Módulos de Seguridad</CardTitle>
@@ -68,10 +68,10 @@ export default function Seguridad() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="sec-api-auth" className="text-foreground font-medium">Tipo Autenticación</Label>
-                  <select 
-                    id="sec-api-auth" 
-                    className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
-                  >
+                <select 
+                  id="sec-api-auth" 
+                  className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-all"
+                >
                     <option>Basic</option>
                     <option>Bearer</option>
                     <option>API Key</option>
@@ -100,7 +100,7 @@ export default function Seguridad() {
                 <Button variant="outline" className="flex-1">
                   Cancelar
                 </Button>
-                <Button className="flex-1">
+                <Button variant="grun" className="flex-1">
                   Guardar Configuración
                 </Button>
               </div>
