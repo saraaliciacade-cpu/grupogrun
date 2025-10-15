@@ -6,86 +6,107 @@
 
 @layer base {
   :root {
-    /* Grün Primary Colors (Emerald/Green) */
-    --background: 210 40% 98%;
-    --foreground: 215 25% 17%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 215 25% 17%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 17%;
-
-    --primary: 158 64% 37%;
+    /* Grupo Grün Colors from tokens */
+    --primary: 137 68% 18%;
     --primary-foreground: 0 0% 100%;
-
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 215 25% 17%;
-
+    
+    --secondary: 141 49% 33%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
     --muted: 210 40% 96%;
-    --muted-foreground: 215 20% 55%;
-
-    --accent: 158 77% 97%;
-    --accent-foreground: 158 64% 37%;
-
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
-
+    --muted-foreground: 215 16% 47%;
+    
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 158 64% 37%;
-
-    --radius: 0.75rem;
-
-    --sidebar-background: 158 64% 20%;
+    --ring: 137 68% 18%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    --sidebar-background: 137 68% 18%;
     --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 158 64% 37%;
+    --sidebar-primary: 141 49% 33%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 158 64% 25%;
+    --sidebar-accent: 137 68% 25%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 158 40% 30%;
-    --sidebar-ring: 158 64% 37%;
+    --sidebar-border: 137 68% 25%;
+    --sidebar-ring: 141 49% 33%;
     
-    /* Grün Shadow System */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    --radius: 0.5rem;
     
-    /* Grün Success/Error States */
-    --success: 158 64% 37%;
+    /* Grupo Grün Shadows */
+    --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0px 20px 25px -5px rgba(0, 0, 0, 0.1);
+    
+    /* Success, Warning, Error */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
     --warning: 38 92% 50%;
-    --error: 0 72% 51%;
+    --warning-foreground: 0 0% 100%;
+    --error: 0 84% 60%;
+    --error-foreground: 0 0% 100%;
   }
 
   .dark {
-    --background: 158 64% 15%;
-    --foreground: 0 0% 100%;
-    --card: 158 64% 20%;
-    --card-foreground: 0 0% 100%;
-    --popover: 158 64% 20%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 158 64% 37%;
+    /* Grupo Grün Dark Mode */
+    --primary: 137 68% 18%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 158 40% 25%;
+    
+    --secondary: 141 49% 33%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 158 40% 25%;
+    
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    
+    --background: 0 0% 7%;
+    --foreground: 210 40% 98%;
+    
+    --card: 217 33% 10%;
+    --card-foreground: 210 40% 98%;
+    
+    --muted: 217 33% 17%;
     --muted-foreground: 215 20% 65%;
-    --accent: 158 40% 25%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62% 45%;
+    
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 137 68% 18%;
+    
+    --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
-    --border: 158 40% 30%;
-    --input: 158 40% 30%;
-    --ring: 158 64% 50%;
-    --sidebar-background: 158 64% 15%;
-    --sidebar-foreground: 0 0% 100%;
-    --sidebar-primary: 158 64% 37%;
+    
+    --popover: 217 33% 10%;
+    --popover-foreground: 210 40% 98%;
+    
+    --sidebar-background: 217 33% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 137 68% 18%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 158 64% 20%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 158 40% 25%;
-    --sidebar-ring: 158 64% 50%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 137 68% 18%;
+    
+    /* Success, Warning, Error for Dark Mode */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --error: 0 62% 50%;
+    --error-foreground: 0 0% 100%;
   }
 }
 

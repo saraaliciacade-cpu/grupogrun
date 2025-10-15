@@ -1,5 +1,7 @@
-import { Home, Settings, CreditCard, Users, FileText, BarChart3, Shield, Landmark } from "lucide-react";
+import { Grid, Building2, Briefcase, Users, ChevronRight } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
+
 import {
   Sidebar,
   SidebarContent,
@@ -9,81 +11,187 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarHeader,
-  SidebarTrigger,
-  useSidebar,
 } from "@/components/ui/sidebar";
-
-const mainItems = [
-  { title: "Inicio", url: "/", icon: Home },
-  { title: "Cuentas", url: "/cuentas", icon: Landmark },
-  { title: "Transacciones", url: "/transacciones", icon: CreditCard },
-  { title: "Clientes", url: "/clientes", icon: Users },
-];
-
-const configItems = [
-  { title: "Configuración", url: "/configuracion", icon: Settings },
-  { title: "Seguridad", url: "/seguridad", icon: Shield },
-  { title: "Reportes", url: "/reportes", icon: BarChart3 },
-];
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 export function AppSidebar() {
-  const { state } = useSidebar();
-  const collapsed = state === "collapsed";
+  const [configOpen, setConfigOpen] = useState(false);
+  const [securityOpen, setSecurityOpen] = useState(false);
 
   return (
-    <Sidebar className="border-r border-sidebar-border grun-gradient">
-      <SidebarHeader className="border-b border-sidebar-border/50 p-4">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 backdrop-blur-sm">
-            <Landmark className="h-6 w-6 text-white" />
-          </div>
-          {!collapsed && (
-            <div>
-              <h2 className="text-lg font-bold text-white italic">Grupo Grün</h2>
-              <p className="text-xs text-white/70">Servicios Financieros</p>
+    <Sidebar className="border-r border-sidebar-border" style={{ backgroundColor: "rgb(33, 83, 45)" }}>
+      <SidebarContent className="pt-4">
+        <div className="px-6 mb-6">
+          <div className="flex items-center gap-2">
+            <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">
+              <span className="text-white font-bold text-sm">GG</span>
             </div>
-          )}
+            <div>
+              <p className="text-white font-semibold text-sm">GRUPO</p>
+              <p className="text-white font-semibold text-sm">GRÜN</p>
+            </div>
+          </div>
         </div>
-      </SidebarHeader>
-
-      <SidebarContent className="px-2 py-4">
+        
         <SidebarGroup>
-          <SidebarGroupLabel className="text-white/60 text-xs uppercase tracking-wider">
-            {!collapsed && "Menú Principal"}
+          <SidebarGroupLabel className="text-white/70 uppercase text-xs font-semibold mb-2 px-6">
+            MENU
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu>
-              {mainItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className="hover:bg-sidebar-accent data-[active=true]:bg-primary data-[active=true]:text-white">
-                    <NavLink to={item.url} end>
-                      <item.icon className="h-5 w-5" />
-                      {!collapsed && <span className="font-medium">{item.title}</span>}
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+            <SidebarMenu className="space-y-1">
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink 
+                    to="/"
+                    className={({ isActive }) => 
+                      `flex items-center gap-3 px-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                    }
+                  >
+                    <Grid className="h-4 w-4" />
+                    <span>Inicio</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
 
-        <SidebarGroup className="mt-6">
-          <SidebarGroupLabel className="text-white/60 text-xs uppercase tracking-wider">
-            {!collapsed && "Administración"}
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {configItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className="hover:bg-sidebar-accent data-[active=true]:bg-primary data-[active=true]:text-white">
-                    <NavLink to={item.url}>
-                      <item.icon className="h-5 w-5" />
-                      {!collapsed && <span className="font-medium">{item.title}</span>}
-                    </NavLink>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              <Collapsible open={configOpen} onOpenChange={setConfigOpen}>
+                <CollapsibleTrigger className="flex items-center justify-between w-full px-6 py-2 text-white hover:bg-white/10 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <Grid className="h-4 w-4" />
+                    <span>Configuración</span>
+                  </div>
+                  <ChevronRight className={`h-4 w-4 transition-transform ${configOpen ? 'rotate-90' : ''}`} />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-1">
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <NavLink 
+                        to="/configuracion/plazos"
+                        className={({ isActive }) => 
+                          `flex items-center gap-3 pl-14 pr-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                        }
+                      >
+                        <span>Plazos</span>
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <NavLink 
+                        to="/configuracion/segmentos"
+                        className={({ isActive }) => 
+                          `flex items-center gap-3 pl-14 pr-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                        }
+                      >
+                        <span>Segmentos</span>
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </CollapsibleContent>
+              </Collapsible>
+
+              <Collapsible open={securityOpen} onOpenChange={setSecurityOpen}>
+                <CollapsibleTrigger className="flex items-center justify-between w-full px-6 py-2 text-white hover:bg-white/10 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <Grid className="h-4 w-4" />
+                    <span>Seguridad</span>
+                  </div>
+                  <ChevronRight className={`h-4 w-4 transition-transform ${securityOpen ? 'rotate-90' : ''}`} />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-1">
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <NavLink 
+                        to="/seguridad/objetos"
+                        className={({ isActive }) => 
+                          `flex items-center gap-3 pl-14 pr-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                        }
+                      >
+                        <span>Objetos</span>
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <NavLink 
+                        to="/seguridad/permisos"
+                        className={({ isActive }) => 
+                          `flex items-center gap-3 pl-14 pr-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                        }
+                      >
+                        <span>Permisos</span>
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <NavLink 
+                        to="/seguridad/apis-externas"
+                        className={({ isActive }) => 
+                          `flex items-center gap-3 pl-14 pr-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                        }
+                      >
+                        <span>Apis Externas</span>
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </CollapsibleContent>
+              </Collapsible>
+
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink 
+                    to="/parametros"
+                    className={({ isActive }) => 
+                      `flex items-center gap-3 px-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                    }
+                  >
+                    <Grid className="h-4 w-4" />
+                    <span>Parámetros</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink 
+                    to="/bancos"
+                    className={({ isActive }) => 
+                      `flex items-center gap-3 px-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                    }
+                  >
+                    <Building2 className="h-4 w-4" />
+                    <span>Bancos</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink 
+                    to="/empresas"
+                    className={({ isActive }) => 
+                      `flex items-center gap-3 px-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                    }
+                  >
+                    <Briefcase className="h-4 w-4" />
+                    <span>Empresas</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink 
+                    to="/clientes"
+                    className={({ isActive }) => 
+                      `flex items-center gap-3 px-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                    }
+                  >
+                    <Users className="h-4 w-4" />
+                    <span>Clientes</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
