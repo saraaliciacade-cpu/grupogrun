@@ -45,11 +45,7 @@ export default function Objetos() {
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div className="relative flex-1 max-w-md">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input placeholder="Objeto-Descripcion" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="pl-10" />
-                </div>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap items-center gap-2">
                   <Button variant="grun" size="sm">
                     <Plus className="h-4 w-4" />
                     Agregar
@@ -58,6 +54,16 @@ export default function Objetos() {
                     <Download className="h-4 w-4" />
                     Exportar
                   </Button>
+                </div>
+                <div className="relative flex items-center">
+                  <Search className="absolute left-3 h-4 w-4 text-muted-foreground" />
+                  <Input 
+                    type="text" 
+                    placeholder="Objeto-Descripcion" 
+                    className="w-[200px] pl-9"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                  />
                 </div>
               </div>
             </CardHeader>
