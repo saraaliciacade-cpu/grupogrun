@@ -1,10 +1,6 @@
-import { Layout } from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { SidebarTrigger } from "@/components/ui/sidebar";
-import { Settings, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 export default function Configuracion() {
   const configSections = [
@@ -16,17 +12,8 @@ export default function Configuracion() {
   ];
 
   return (
-    <Layout>
-      <div className="min-h-screen bg-background">
-        <header className="sticky top-0 z-10 border-b bg-white grun-shadow-card">
-          <div className="flex h-16 items-center gap-4 px-6">
-            <SidebarTrigger className="text-foreground" />
-            <Settings className="h-6 w-6 text-primary" />
-            <h1 className="text-2xl font-bold text-foreground">Configuración</h1>
-          </div>
-        </header>
-
-        <div className="p-6 space-y-6 max-w-6xl">
+    <div className="min-h-screen bg-background">
+      <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
               <CardTitle className="text-foreground">Secciones de Configuración</CardTitle>
@@ -49,9 +36,8 @@ export default function Configuracion() {
                 ))}
               </div>
             </CardContent>
-          </Card>
-        </div>
+        </Card>
       </div>
-    </Layout>
+    </div>
   );
 }

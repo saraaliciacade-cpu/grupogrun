@@ -41,12 +41,6 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-background">
       <div className="p-8 space-y-8">
-        {/* Header */}
-        <div>
-          <h1 className="text-4xl font-bold text-primary mb-2">Inicio</h1>
-          <p className="text-lg text-muted-foreground">Bienvenido al sistema de Grupo Grün</p>
-        </div>
-
         {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map((stat) => (
@@ -82,7 +76,7 @@ export default function Dashboard() {
           {/* Recent Activity */}
           <Card className="grun-shadow-md border-border/50">
             <CardHeader>
-              <CardTitle className="text-primary">Actividad Reciente</CardTitle>
+              <CardTitle className="text-foreground">Actividad Reciente</CardTitle>
               <CardDescription>Últimas operaciones realizadas</CardDescription>
             </CardHeader>
             <CardContent>
@@ -116,7 +110,7 @@ export default function Dashboard() {
           {/* Quick Actions */}
           <Card className="grun-shadow-md border-border/50">
             <CardHeader>
-              <CardTitle className="text-primary">Acciones Rápidas</CardTitle>
+              <CardTitle className="text-foreground">Acciones Rápidas</CardTitle>
               <CardDescription>Operaciones frecuentes</CardDescription>
             </CardHeader>
             <CardContent>

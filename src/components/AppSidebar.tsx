@@ -23,7 +23,7 @@ export function AppSidebar() {
     <Sidebar className="border-r border-sidebar-border" style={{ backgroundColor: "rgb(33, 83, 45)" }}>
       <SidebarContent className="pt-4">
         <div className="px-6 mb-6">
-          <img src={logoGrun} alt="Banco Grupo Grün" className="w-full h-auto" />
+          <img src={logoGrun} alt="Banco Grupo Grün" className="w-32 h-auto mx-auto" />
         </div>
         
         <SidebarGroup>
