@@ -8,7 +8,7 @@ export default function Plazos() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle>Gestión de Plazos</CardTitle>
+              <CardTitle>Parámetros</CardTitle>
               <CardDescription>Configurar y administrar plazos de operaciones</CardDescription>
             </CardHeader>
             <CardContent>
