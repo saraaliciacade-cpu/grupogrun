@@ -1,3 +1,4 @@
+import { Layout } from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,8 +13,9 @@ export default function Seguridad() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="p-8 space-y-8">
+    <Layout>
+      <div className="min-h-screen bg-background">
+        <div className="p-8 space-y-8">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
               <CardTitle className="text-foreground">Módulos de Seguridad</CardTitle>
@@ -107,6 +109,7 @@ export default function Seguridad() {
             </CardContent>
         </Card>
       </div>
-    </div>
+      </div>
+    </Layout>
   );
 }

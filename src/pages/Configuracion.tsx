@@ -1,3 +1,4 @@
+import { Layout } from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
@@ -12,7 +13,8 @@ export default function Configuracion() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <Layout>
+      <div className="min-h-screen bg-background">
       <div className="p-8 space-y-8">
         <Card className="grun-shadow-lg border-border/50">
           <CardHeader>
@@ -38,6 +40,7 @@ export default function Configuracion() {
           </CardContent>
         </Card>
       </div>
-    </div>
+      </div>
+    </Layout>
   );
 }
