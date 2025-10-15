@@ -8,8 +8,8 @@ export default function Permisos() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle>Seguridad</CardTitle>
-              <CardDescription>Permisos</CardDescription>
+              <CardTitle>Permisos</CardTitle>
+              <CardDescription>Seguridad</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Contenido de permisos...</p>

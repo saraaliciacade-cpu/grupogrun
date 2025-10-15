@@ -8,8 +8,8 @@ export default function Segmentos() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle>Configuración</CardTitle>
-              <CardDescription>Segmentos</CardDescription>
+              <CardTitle>Segmentos</CardTitle>
+              <CardDescription>Configuración</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Contenido de segmentos...</p>
