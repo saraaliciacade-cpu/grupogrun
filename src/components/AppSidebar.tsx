@@ -21,8 +21,8 @@ export function AppSidebar() {
 
   return (
     <Sidebar className="border-r border-sidebar-border" style={{ backgroundColor: "rgb(33, 83, 45)" }}>
-      <SidebarContent className="pt-4">
-        <div className="px-6 mb-8">
+      <SidebarContent className="pt-12">
+        <div className="px-6 mb-10">
           <img src={logoGrun} alt="Banco Grupo Grün" className="w-40 h-auto mx-auto" />
         </div>
         
