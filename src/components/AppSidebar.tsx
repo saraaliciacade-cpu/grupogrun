@@ -28,7 +28,7 @@ export function AppSidebar() {
         
         <SidebarGroup>
           <SidebarGroupLabel className="text-white/70 uppercase text-xs font-semibold mb-2 px-6">
-            MENU
+            MENÚ PRINCIPAL
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="space-y-1">
@@ -46,6 +46,57 @@ export function AppSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
 
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink 
+                    to="/bancos"
+                    className={({ isActive }) => 
+                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
+                    }
+                  >
+                    <Building2 className="h-5 w-5" />
+                    <span>Bancos</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink 
+                    to="/empresas"
+                    className={({ isActive }) => 
+                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
+                    }
+                  >
+                    <Briefcase className="h-5 w-5" />
+                    <span>Empresas</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink 
+                    to="/clientes"
+                    className={({ isActive }) => 
+                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
+                    }
+                  >
+                    <Users className="h-5 w-5" />
+                    <span>Clientes</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-white/70 uppercase text-xs font-semibold mb-2 px-6 mt-4">
+            ADMINISTRACIÓN
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu className="space-y-1">
               <Collapsible open={configOpen} onOpenChange={setConfigOpen}>
                 <CollapsibleTrigger className="flex items-center justify-between w-full px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2">
                   <div className="flex items-center gap-3">
@@ -133,55 +184,13 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <NavLink 
-                    to="/parametros"
+                    to="/reportes"
                     className={({ isActive }) => 
                       `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
                     }
                   >
                     <Sliders className="h-5 w-5" />
-                    <span>Parámetros</span>
-                  </NavLink>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <NavLink 
-                    to="/bancos"
-                    className={({ isActive }) => 
-                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
-                    }
-                  >
-                    <Building2 className="h-5 w-5" />
-                    <span>Bancos</span>
-                  </NavLink>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <NavLink 
-                    to="/empresas"
-                    className={({ isActive }) => 
-                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
-                    }
-                  >
-                    <Briefcase className="h-5 w-5" />
-                    <span>Empresas</span>
-                  </NavLink>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <NavLink 
-                    to="/clientes"
-                    className={({ isActive }) => 
-                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
-                    }
-                  >
-                    <Users className="h-5 w-5" />
-                    <span>Clientes</span>
+                    <span>Reportes</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>

@@ -11,7 +11,7 @@ import Segmentos from "./pages/Segmentos";
 import Objetos from "./pages/Objetos";
 import Permisos from "./pages/Permisos";
 import ApisExternas from "./pages/ApisExternas";
-import Parametros from "./pages/Parametros";
+import Reportes from "./pages/Reportes";
 import Bancos from "./pages/Bancos";
 import Empresas from "./pages/Empresas";
 import Clientes from "./pages/Clientes";
@@ -34,7 +34,7 @@ const App = () => (
           <Route path="/seguridad/objetos" element={<Objetos />} />
           <Route path="/seguridad/permisos" element={<Permisos />} />
           <Route path="/seguridad/apis-externas" element={<ApisExternas />} />
-          <Route path="/parametros" element={<Parametros />} />
+          <Route path="/reportes" element={<Reportes />} />
           <Route path="/bancos" element={<Bancos />} />
           <Route path="/empresas" element={<Empresas />} />
           <Route path="/clientes" element={<Clientes />} />

@@ -21,7 +21,7 @@ export function Layout({ children }: LayoutProps) {
     if (path === "/seguridad/objetos") return "Objetos";
     if (path === "/seguridad/permisos") return "Permisos";
     if (path === "/seguridad/apis-externas") return "Apis Externas";
-    if (path === "/parametros") return "Parámetros";
+    if (path === "/reportes") return "Reportes";
     if (path === "/bancos") return "Bancos";
     if (path === "/empresas") return "Empresas";
     if (path === "/clientes") return "Clientes";
