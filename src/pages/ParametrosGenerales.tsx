@@ -235,9 +235,9 @@ export default function ParametrosGenerales() {
                 />
               </div>
               <div className="pt-4">
-                <Button variant="grun" className="w-full" onClick={clearFilters}>
-                  <ArrowLeftCircle className="h-4 w-4" />
-                  Click Acá para volver a ver todos los Parámetros
+                <Button variant="grun" className="w-full gap-2 h-auto py-3 whitespace-normal" onClick={clearFilters}>
+                  <ArrowLeftCircle className="h-5 w-5 shrink-0" />
+                  <span>Click Acá para volver a ver todos los Parámetros</span>
                 </Button>
               </div>
             </div>
