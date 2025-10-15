@@ -5,34 +5,46 @@ import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Search, Edit } from "lucide-react";
 import { useState } from "react";
-
-const objetosData = [
-  { id: 1, descripcion: "aplicacion" },
-  { id: 2, descripcion: "clientes" },
-  { id: 3, descripcion: "empresas" },
-  { id: 4, descripcion: "home" },
-  { id: 5, descripcion: "notauthorized" },
-  { id: 6, descripcion: "parametros" },
-  { id: 7, descripcion: "parametrosplazos" },
-  { id: 8, descripcion: "parametrossegmentos" },
-  { id: 9, descripcion: "permisos" },
-  { id: 10, descripcion: "test" },
-];
-
+const objetosData = [{
+  id: 1,
+  descripcion: "aplicacion"
+}, {
+  id: 2,
+  descripcion: "clientes"
+}, {
+  id: 3,
+  descripcion: "empresas"
+}, {
+  id: 4,
+  descripcion: "home"
+}, {
+  id: 5,
+  descripcion: "notauthorized"
+}, {
+  id: 6,
+  descripcion: "parametros"
+}, {
+  id: 7,
+  descripcion: "parametrosplazos"
+}, {
+  id: 8,
+  descripcion: "parametrossegmentos"
+}, {
+  id: 9,
+  descripcion: "permisos"
+}, {
+  id: 10,
+  descripcion: "test"
+}];
 export default function Objetos() {
   const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredObjetos = objetosData.filter((objeto) =>
-    objeto.descripcion.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  return (
-    <Layout>
+  const filteredObjetos = objetosData.filter(objeto => objeto.descripcion.toLowerCase().includes(searchTerm.toLowerCase()));
+  return <Layout>
       <div className="min-h-screen bg-background">
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle>Objetos</CardTitle>
+              
               <div className="flex gap-4 mt-4">
                 <Button variant="grun" size="sm">
                   Agregar
@@ -45,12 +57,7 @@ export default function Objetos() {
             <CardContent>
               <div className="mb-4 relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Objeto-Descripcion"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
-                />
+                <Input placeholder="Objeto-Descripcion" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} className="pl-10" />
               </div>
               
               <div className="border rounded-lg">
@@ -62,16 +69,14 @@ export default function Objetos() {
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {filteredObjetos.map((objeto) => (
-                      <TableRow key={objeto.id}>
+                    {filteredObjetos.map(objeto => <TableRow key={objeto.id}>
                         <TableCell className="font-medium">{objeto.descripcion}</TableCell>
                         <TableCell>
                           <Button variant="ghost" size="icon">
                             <Edit className="h-4 w-4" />
                           </Button>
                         </TableCell>
-                      </TableRow>
-                    ))}
+                      </TableRow>)}
                   </TableBody>
                 </Table>
               </div>
@@ -79,6 +84,5 @@ export default function Objetos() {
           </Card>
         </div>
       </div>
-    </Layout>
-  );
+    </Layout>;
 }
