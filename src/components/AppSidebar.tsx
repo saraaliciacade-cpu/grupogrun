@@ -1,4 +1,4 @@
-import { Home, Settings, Shield, Sliders, Building2, Briefcase, Users, ChevronRight } from "lucide-react";
+import { Home, Settings, Shield, Sliders, Building2, Briefcase, Users, ChevronRight, Calculator } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import logoGrun from "@/assets/Banco_Grupo_Grun.png";
@@ -55,7 +55,7 @@ export function AppSidebar() {
                       `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
                     }
                   >
-                    <Sliders className="h-5 w-5" />
+                    <Calculator className="h-5 w-5" />
                     <span>Cotización</span>
                   </NavLink>
                 </SidebarMenuButton>
