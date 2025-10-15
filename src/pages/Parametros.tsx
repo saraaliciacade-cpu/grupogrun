@@ -3,7 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Pencil } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Pencil, Filter } from "lucide-react";
 
 export default function Parametros() {
   const parametrosData = [
@@ -27,7 +28,7 @@ export default function Parametros() {
               <Card className="grun-shadow-lg border-border/50">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0">
                   <CardTitle>Parámetros Segmentos</CardTitle>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 items-center">
                     <Button style={{ backgroundColor: '#21532d', color: 'white' }} className="hover:bg-[#1a4224]">
                       Agregar
                     </Button>
@@ -36,6 +37,17 @@ export default function Parametros() {
                     </Button>
                     <Button style={{ backgroundColor: '#21532d', color: 'white' }} className="hover:bg-[#1a4224]">
                       Copiar Segmentos
+                    </Button>
+                    <Select defaultValue="todos">
+                      <SelectTrigger className="w-[140px]">
+                        <SelectValue placeholder="(Todos)" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="todos">(Todos)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <Button variant="outline" size="icon">
+                      <Filter className="h-4 w-4" />
                     </Button>
                   </div>
                 </CardHeader>
