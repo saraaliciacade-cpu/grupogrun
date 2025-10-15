@@ -28,13 +28,13 @@ export default function Parametros() {
                 <CardHeader className="flex flex-row items-center justify-between space-y-0">
                   <CardTitle className="text-foreground">Parámetros Segmentos</CardTitle>
                   <div className="flex gap-2">
-                    <Button className="bg-[#0ea5a5] hover:bg-[#0c8d8d] text-white">
+                    <Button className="bg-[#21532d] hover:bg-[#1a4224] text-white">
                       Agregar
                     </Button>
-                    <Button className="bg-[#0ea5a5] hover:bg-[#0c8d8d] text-white">
+                    <Button className="bg-[#21532d] hover:bg-[#1a4224] text-white">
                       Exportar
                     </Button>
-                    <Button className="bg-[#0ea5a5] hover:bg-[#0c8d8d] text-white">
+                    <Button className="bg-[#21532d] hover:bg-[#1a4224] text-white">
                       Copiar Segmentos
                     </Button>
                   </div>

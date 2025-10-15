@@ -18,6 +18,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 export function AppSidebar() {
   const [configOpen, setConfigOpen] = useState(false);
   const [securityOpen, setSecurityOpen] = useState(false);
+  const [parametrosOpen, setParametrosOpen] = useState(false);
 
   return (
     <Sidebar className="border-r border-sidebar-border" style={{ backgroundColor: "rgb(33, 83, 45)" }}>
@@ -195,19 +196,29 @@ export function AppSidebar() {
                 </CollapsibleContent>
               </Collapsible>
 
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <NavLink 
-                    to="/parametros"
-                    className={({ isActive }) => 
-                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
-                    }
-                  >
+              <Collapsible open={parametrosOpen} onOpenChange={setParametrosOpen}>
+                <CollapsibleTrigger className="flex items-center justify-between w-full px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2">
+                  <div className="flex items-center gap-3">
                     <Sliders className="h-5 w-5" />
                     <span>Parámetros</span>
-                  </NavLink>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+                  </div>
+                  <ChevronRight className={`h-4 w-4 transition-transform duration-300 ${parametrosOpen ? 'rotate-90' : ''}`} />
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-1 overflow-hidden transition-all duration-300 ease-in-out data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
+                  <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                      <NavLink 
+                        to="/parametros/segmentos"
+                        className={({ isActive }) => 
+                          `flex items-center gap-3 pl-14 pr-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                        }
+                      >
+                        <span>Segmentos</span>
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                </CollapsibleContent>
+              </Collapsible>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
