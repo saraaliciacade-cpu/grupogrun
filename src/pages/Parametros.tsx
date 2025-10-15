@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Pencil, Filter } from "lucide-react";
+import { Pencil, Filter, Plus, Download, Copy } from "lucide-react";
 export default function Parametros() {
   const parametrosData = [{
     tipo: "Auto",
@@ -55,15 +55,29 @@ export default function Parametros() {
                 <CardHeader className="flex flex-row items-center justify-between space-y-0">
                   <CardTitle>Parámetros Segmentos</CardTitle>
                   <div className="flex items-center gap-2">
-                    <Filter className="h-4 w-4 text-muted-foreground" />
-                    <Select defaultValue="todos">
-                      <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Seleccionar..." />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="todos">(Todos)</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <Button variant="grun" size="sm">
+                      <Plus className="h-4 w-4" />
+                      Agregar
+                    </Button>
+                    <Button variant="outline" size="sm">
+                      <Download className="h-4 w-4" />
+                      Exportar
+                    </Button>
+                    <Button variant="outline" size="sm">
+                      <Copy className="h-4 w-4" />
+                      Copiar Plazos
+                    </Button>
+                    <div className="flex items-center gap-2 ml-4">
+                      <Filter className="h-4 w-4 text-muted-foreground" />
+                      <Select defaultValue="todos">
+                        <SelectTrigger className="w-[180px]">
+                          <SelectValue placeholder="Seleccionar..." />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="todos">(Todos)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
                   </div>
                 </CardHeader>
                 <CardContent>
