@@ -1,4 +1,4 @@
-import { Grid, Building2, Briefcase, Users, ChevronRight } from "lucide-react";
+import { Home, Settings, Shield, Sliders, Building2, Briefcase, Users, ChevronRight } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
@@ -44,19 +44,19 @@ export function AppSidebar() {
                   <NavLink 
                     to="/"
                     className={({ isActive }) => 
-                      `flex items-center gap-3 px-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
                     }
                   >
-                    <Grid className="h-4 w-4" />
+                    <Home className="h-5 w-5" />
                     <span>Inicio</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
 
               <Collapsible open={configOpen} onOpenChange={setConfigOpen}>
-                <CollapsibleTrigger className="flex items-center justify-between w-full px-6 py-2 text-white hover:bg-white/10 transition-colors">
+                <CollapsibleTrigger className="flex items-center justify-between w-full px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2">
                   <div className="flex items-center gap-3">
-                    <Grid className="h-4 w-4" />
+                    <Settings className="h-5 w-5" />
                     <span>Configuración</span>
                   </div>
                   <ChevronRight className={`h-4 w-4 transition-transform ${configOpen ? 'rotate-90' : ''}`} />
@@ -90,9 +90,9 @@ export function AppSidebar() {
               </Collapsible>
 
               <Collapsible open={securityOpen} onOpenChange={setSecurityOpen}>
-                <CollapsibleTrigger className="flex items-center justify-between w-full px-6 py-2 text-white hover:bg-white/10 transition-colors">
+                <CollapsibleTrigger className="flex items-center justify-between w-full px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2">
                   <div className="flex items-center gap-3">
-                    <Grid className="h-4 w-4" />
+                    <Shield className="h-5 w-5" />
                     <span>Seguridad</span>
                   </div>
                   <ChevronRight className={`h-4 w-4 transition-transform ${securityOpen ? 'rotate-90' : ''}`} />
@@ -142,10 +142,10 @@ export function AppSidebar() {
                   <NavLink 
                     to="/parametros"
                     className={({ isActive }) => 
-                      `flex items-center gap-3 px-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
                     }
                   >
-                    <Grid className="h-4 w-4" />
+                    <Sliders className="h-5 w-5" />
                     <span>Parámetros</span>
                   </NavLink>
                 </SidebarMenuButton>
@@ -156,10 +156,10 @@ export function AppSidebar() {
                   <NavLink 
                     to="/bancos"
                     className={({ isActive }) => 
-                      `flex items-center gap-3 px-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
                     }
                   >
-                    <Building2 className="h-4 w-4" />
+                    <Building2 className="h-5 w-5" />
                     <span>Bancos</span>
                   </NavLink>
                 </SidebarMenuButton>
@@ -170,10 +170,10 @@ export function AppSidebar() {
                   <NavLink 
                     to="/empresas"
                     className={({ isActive }) => 
-                      `flex items-center gap-3 px-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
                     }
                   >
-                    <Briefcase className="h-4 w-4" />
+                    <Briefcase className="h-5 w-5" />
                     <span>Empresas</span>
                   </NavLink>
                 </SidebarMenuButton>
@@ -184,10 +184,10 @@ export function AppSidebar() {
                   <NavLink 
                     to="/clientes"
                     className={({ isActive }) => 
-                      `flex items-center gap-3 px-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
+                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
                     }
                   >
-                    <Users className="h-4 w-4" />
+                    <Users className="h-5 w-5" />
                     <span>Clientes</span>
                   </NavLink>
                 </SidebarMenuButton>
