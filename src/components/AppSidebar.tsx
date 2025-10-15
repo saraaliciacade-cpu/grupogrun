@@ -49,6 +49,20 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <NavLink 
+                    to="/cotizacion"
+                    className={({ isActive }) => 
+                      `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
+                    }
+                  >
+                    <Sliders className="h-5 w-5" />
+                    <span>Cotización</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink 
                     to="/bancos"
                     className={({ isActive }) => 
                       `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
@@ -184,13 +198,13 @@ export function AppSidebar() {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <NavLink 
-                    to="/reportes"
+                    to="/parametros"
                     className={({ isActive }) => 
                       `flex items-center gap-3 px-6 py-2.5 text-white hover:bg-white/10 transition-colors rounded-lg mx-2 ${isActive ? 'bg-white/10' : ''}`
                     }
                   >
                     <Sliders className="h-5 w-5" />
-                    <span>Reportes</span>
+                    <span>Parámetros</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>

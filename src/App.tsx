@@ -11,7 +11,8 @@ import Segmentos from "./pages/Segmentos";
 import Objetos from "./pages/Objetos";
 import Permisos from "./pages/Permisos";
 import ApisExternas from "./pages/ApisExternas";
-import Reportes from "./pages/Reportes";
+import Parametros from "./pages/Parametros";
+import Cotizacion from "./pages/Cotizacion";
 import Bancos from "./pages/Bancos";
 import Empresas from "./pages/Empresas";
 import Clientes from "./pages/Clientes";
@@ -27,6 +28,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/cotizacion" element={<Cotizacion />} />
           <Route path="/configuracion" element={<Configuracion />} />
           <Route path="/configuracion/plazos" element={<Plazos />} />
           <Route path="/configuracion/segmentos" element={<Segmentos />} />
@@ -34,7 +36,7 @@ const App = () => (
           <Route path="/seguridad/objetos" element={<Objetos />} />
           <Route path="/seguridad/permisos" element={<Permisos />} />
           <Route path="/seguridad/apis-externas" element={<ApisExternas />} />
-          <Route path="/reportes" element={<Reportes />} />
+          <Route path="/parametros" element={<Parametros />} />
           <Route path="/bancos" element={<Bancos />} />
           <Route path="/empresas" element={<Empresas />} />
           <Route path="/clientes" element={<Clientes />} />
