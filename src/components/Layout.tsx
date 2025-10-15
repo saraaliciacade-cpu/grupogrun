@@ -15,7 +15,7 @@ export function Layout({ children }: LayoutProps) {
 
   const getPageTitle = () => {
     const path = location.pathname;
-    if (path === "/") return "Parámetros Generales";
+    if (path === "/") return "Inicio";
     if (path === "/parametros/generales") return "Parámetros Generales";
     if (path === "/cotizacion") return "Cotización";
     if (path === "/configuracion/plazos") return "Plazos";
