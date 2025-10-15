@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Pencil, Filter, Plus, Download, Copy, X, ArrowLeft, Search } from "lucide-react";
+import { Pencil, Filter, Plus, Download, Copy, X, ArrowLeftCircle, Search } from "lucide-react";
 import { useState } from "react";
 
 export default function Parametros() {
@@ -157,7 +157,7 @@ export default function Parametros() {
               </div>
               <div className="pt-4">
                 <Button variant="grun" className="w-full" onClick={clearFilters}>
-                  <ArrowLeft className="h-4 w-4" />
+                  <ArrowLeftCircle className="h-4 w-4" />
                   Click Acá para volver a ver todos los Parámetros
                 </Button>
               </div>

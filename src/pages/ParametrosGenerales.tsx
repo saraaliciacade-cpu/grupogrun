@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { Pencil, Filter, Plus, Download, Trash2, X, ArrowLeft, Search } from "lucide-react";
+import { Pencil, Filter, Plus, Download, Trash2, X, ArrowLeftCircle, Search } from "lucide-react";
 import { useState } from "react";
 
 export default function ParametrosGenerales() {
@@ -236,7 +236,7 @@ export default function ParametrosGenerales() {
               </div>
               <div className="pt-4">
                 <Button variant="grun" className="w-full" onClick={clearFilters}>
-                  <ArrowLeft className="h-4 w-4" />
+                  <ArrowLeftCircle className="h-4 w-4" />
                   Click Acá para volver a ver todos los Parámetros
                 </Button>
               </div>
