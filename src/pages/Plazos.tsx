@@ -8,8 +8,8 @@ export default function Plazos() {
         <div className="p-6 space-y-6 max-w-6xl">
           <Card className="grun-shadow-lg border-border/50">
             <CardHeader>
-              <CardTitle>Plazos</CardTitle>
-              <CardDescription>Configuración</CardDescription>
+              <CardTitle>Configuración</CardTitle>
+              <CardDescription>Plazos</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Contenido de plazos...</p>
