@@ -52,23 +52,24 @@ export default function Parametros() {
             
             <TabsContent value="segmentos" className="space-y-4">
               <Card className="grun-shadow-lg border-border/50">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0">
+                <CardHeader className="space-y-4">
                   <CardTitle>Parámetros Segmentos</CardTitle>
-                  <div className="flex items-center gap-2">
-                    <Button variant="grun" size="sm">
-                      <Plus className="h-4 w-4" />
-                      Agregar
-                    </Button>
-                    <Button variant="outline" size="sm">
-                      <Download className="h-4 w-4" />
-                      Exportar
-                    </Button>
-                    <Button variant="outline" size="sm">
-                      <Copy className="h-4 w-4" />
-                      Copiar Plazos
-                    </Button>
-                    <div className="flex items-center gap-2 ml-4">
-                      <Filter className="h-4 w-4 text-muted-foreground" />
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Button variant="grun" size="sm">
+                        <Plus className="h-4 w-4" />
+                        Agregar
+                      </Button>
+                      <Button variant="grun" size="sm">
+                        <Download className="h-4 w-4" />
+                        Exportar
+                      </Button>
+                      <Button variant="grun" size="sm">
+                        <Copy className="h-4 w-4" />
+                        Copiar Plazos
+                      </Button>
+                    </div>
+                    <div className="flex items-center gap-2">
                       <Select defaultValue="todos">
                         <SelectTrigger className="w-[180px]">
                           <SelectValue placeholder="Seleccionar..." />
@@ -77,6 +78,9 @@ export default function Parametros() {
                           <SelectItem value="todos">(Todos)</SelectItem>
                         </SelectContent>
                       </Select>
+                      <Button variant="ghost" size="icon">
+                        <Filter className="h-4 w-4" />
+                      </Button>
                     </div>
                   </div>
                 </CardHeader>
