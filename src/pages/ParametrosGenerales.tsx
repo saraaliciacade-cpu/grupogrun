@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { Pencil, Filter, Plus, Download, Trash2, X } from "lucide-react";
+import { Pencil, Filter, Plus, Download, Trash2, X, ArrowLeft } from "lucide-react";
 import { useState } from "react";
 
 export default function ParametrosGenerales() {
@@ -206,7 +206,7 @@ export default function ParametrosGenerales() {
 
         {/* Filter Sidebar */}
         <Sheet open={filterOpen} onOpenChange={setFilterOpen}>
-          <SheetContent side="right" className="w-[400px] bg-muted/50">
+          <SheetContent side="right" className="w-[400px] bg-background/95 backdrop-blur-xl border-border/50">
             <SheetHeader>
               <div className="flex items-center justify-between">
                 <SheetTitle>Filtros</SheetTitle>
@@ -235,7 +235,8 @@ export default function ParametrosGenerales() {
                 />
               </div>
               <Button variant="grun" className="w-full" onClick={clearFilters}>
-                Ver Todos Los Parámetros
+                <ArrowLeft className="h-4 w-4" />
+                Volver a ver todos los parámetros
               </Button>
             </div>
           </SheetContent>
