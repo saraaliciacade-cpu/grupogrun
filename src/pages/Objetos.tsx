@@ -65,7 +65,7 @@ export default function Objetos() {
 
   const handleAdd = () => {
     const newId = Math.max(...objetosData.map(o => o.id), 0) + 1;
-    setObjetosData([...objetosData, { id: newId, ...newData }]);
+    setObjetosData([{ id: newId, ...newData }, ...objetosData]);
     setAddDialogOpen(false);
     setNewData({ descripcion: "" });
   };
