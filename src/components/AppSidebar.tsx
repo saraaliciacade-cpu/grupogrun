@@ -1,6 +1,7 @@
 import { Home, Settings, Shield, Sliders, Building2, Briefcase, Users, ChevronRight } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import logoGrun from "@/assets/Banco_Grupo_Grun.png";
 
 import {
   Sidebar,
@@ -22,15 +23,7 @@ export function AppSidebar() {
     <Sidebar className="border-r border-sidebar-border" style={{ backgroundColor: "rgb(33, 83, 45)" }}>
       <SidebarContent className="pt-4">
         <div className="px-6 mb-6">
-          <div className="flex items-center gap-2">
-            <div className="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">GG</span>
-            </div>
-            <div>
-              <p className="text-white font-semibold text-sm">GRUPO</p>
-              <p className="text-white font-semibold text-sm">GRÜN</p>
-            </div>
-          </div>
+          <img src={logoGrun} alt="Banco Grupo Grün" className="w-full h-auto" />
         </div>
         
         <SidebarGroup>

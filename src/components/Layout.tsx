@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -35,7 +35,8 @@ export function Layout({ children }: LayoutProps) {
       <div className="flex min-h-screen w-full bg-background">
         <AppSidebar />
         <main className="flex-1 overflow-auto">
-          <div className="sticky top-0 z-10 flex justify-end p-4 bg-background border-b">
+          <div className="sticky top-0 z-10 flex justify-between items-center p-4 bg-background border-b">
+            <SidebarTrigger />
             <Button
               variant="ghost"
               size="icon"

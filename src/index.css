@@ -69,36 +69,36 @@
     --secondary: 141 49% 33%;
     --secondary-foreground: 0 0% 100%;
     
-    --accent: 217 33% 17%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
     
-    --background: 0 0% 7%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
     
-    --card: 217 33% 10%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
     
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
     
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
     --ring: 137 68% 18%;
     
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
     
-    --popover: 217 33% 10%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
     
-    --sidebar-background: 217 33% 10%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 137 68% 18%;
+    --sidebar-background: 137 68% 18%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 141 49% 33%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 17%;
-    --sidebar-ring: 137 68% 18%;
+    --sidebar-accent: 137 68% 25%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 137 68% 25%;
+    --sidebar-ring: 141 49% 33%;
     
     /* Success, Warning, Error for Dark Mode */
     --success: 142 71% 45%;
