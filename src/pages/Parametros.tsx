@@ -3,20 +3,45 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Pencil, Filter } from "lucide-react";
-
+import { Pencil } from "lucide-react";
 export default function Parametros() {
-  const parametrosData = [
-    { tipo: "Auto", anoVigencia: 2025, anoDesde: 2025, anoHasta: 2025, tasaFija: "85,00", uva: "80,00" },
-    { tipo: "Auto", anoVigencia: 2025, anoDesde: 2021, anoHasta: 2024, tasaFija: "80,00", uva: "70,00" },
-    { tipo: "Auto", anoVigencia: 2025, anoDesde: 2019, anoHasta: 2020, tasaFija: "70,00", uva: "65,00" },
-    { tipo: "Auto", anoVigencia: 2025, anoDesde: 2015, anoHasta: 2018, tasaFija: "65,00", uva: "50,00" },
-    { tipo: "Auto", anoVigencia: 2025, anoDesde: 2012, anoHasta: 2014, tasaFija: "50,00", uva: "50,00" },
-  ];
-
-  return (
-    <Layout>
+  const parametrosData = [{
+    tipo: "Auto",
+    anoVigencia: 2025,
+    anoDesde: 2025,
+    anoHasta: 2025,
+    tasaFija: "85,00",
+    uva: "80,00"
+  }, {
+    tipo: "Auto",
+    anoVigencia: 2025,
+    anoDesde: 2021,
+    anoHasta: 2024,
+    tasaFija: "80,00",
+    uva: "70,00"
+  }, {
+    tipo: "Auto",
+    anoVigencia: 2025,
+    anoDesde: 2019,
+    anoHasta: 2020,
+    tasaFija: "70,00",
+    uva: "65,00"
+  }, {
+    tipo: "Auto",
+    anoVigencia: 2025,
+    anoDesde: 2015,
+    anoHasta: 2018,
+    tasaFija: "65,00",
+    uva: "50,00"
+  }, {
+    tipo: "Auto",
+    anoVigencia: 2025,
+    anoDesde: 2012,
+    anoHasta: 2014,
+    tasaFija: "50,00",
+    uva: "50,00"
+  }];
+  return <Layout>
       <div className="min-h-screen bg-background">
         <div className="p-6 space-y-6">
           <Tabs defaultValue="segmentos" className="w-full">
@@ -27,29 +52,8 @@ export default function Parametros() {
             <TabsContent value="segmentos" className="space-y-4">
               <Card className="grun-shadow-lg border-border/50">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0">
-                  <CardTitle>Parámetros Segmentos</CardTitle>
-                  <div className="flex gap-2 items-center">
-                    <Button style={{ backgroundColor: '#21532d', color: 'white' }} className="hover:bg-[#1a4224]">
-                      Agregar
-                    </Button>
-                    <Button style={{ backgroundColor: '#21532d', color: 'white' }} className="hover:bg-[#1a4224]">
-                      Exportar
-                    </Button>
-                    <Button style={{ backgroundColor: '#21532d', color: 'white' }} className="hover:bg-[#1a4224]">
-                      Copiar Segmentos
-                    </Button>
-                    <Select defaultValue="todos">
-                      <SelectTrigger className="w-[140px]">
-                        <SelectValue placeholder="(Todos)" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="todos">(Todos)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <Button variant="outline" size="icon">
-                      <Filter className="h-4 w-4" />
-                    </Button>
-                  </div>
+                  <CardTitle className="text-foreground">Parámetros Segmentos</CardTitle>
+                  
                 </CardHeader>
                 <CardContent>
                   <Table>
@@ -65,8 +69,7 @@ export default function Parametros() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {parametrosData.map((row, index) => (
-                        <TableRow key={index}>
+                      {parametrosData.map((row, index) => <TableRow key={index}>
                           <TableCell className="font-medium">{row.tipo}</TableCell>
                           <TableCell className="text-center">{row.anoVigencia}</TableCell>
                           <TableCell className="text-center">{row.anoDesde}</TableCell>
@@ -78,8 +81,7 @@ export default function Parametros() {
                               <Pencil className="h-4 w-4" />
                             </Button>
                           </TableCell>
-                        </TableRow>
-                      ))}
+                        </TableRow>)}
                     </TableBody>
                   </Table>
                 </CardContent>
@@ -88,6 +90,5 @@ export default function Parametros() {
           </Tabs>
         </div>
       </div>
-    </Layout>
-  );
+    </Layout>;
 }
