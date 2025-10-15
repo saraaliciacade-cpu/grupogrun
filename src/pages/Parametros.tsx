@@ -53,7 +53,7 @@ export default function Parametros() {
             <TabsContent value="segmentos" className="space-y-4">
               <Card className="grun-shadow-lg border-border/50">
                 <CardHeader className="space-y-4">
-                  <CardTitle>Parámetros Segmentos</CardTitle>
+                  
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div className="flex flex-wrap items-center gap-2">
                       <Button variant="grun" size="sm">
