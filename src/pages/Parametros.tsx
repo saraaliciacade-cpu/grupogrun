@@ -2,7 +2,6 @@ import { Layout } from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
@@ -14,9 +13,18 @@ import { useState } from "react";
 export default function Parametros() {
   const [filterOpen, setFilterOpen] = useState(false);
   const [editDialogOpen, setEditDialogOpen] = useState(false);
+  const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [anoFilter, setAnoFilter] = useState("");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [editData, setEditData] = useState({
+    tipo: "",
+    anoVigencia: 0,
+    anoDesde: 0,
+    anoHasta: 0,
+    tasaFija: "",
+    uva: ""
+  });
+  const [newData, setNewData] = useState({
     tipo: "",
     anoVigencia: 0,
     anoDesde: 0,
@@ -90,6 +98,28 @@ export default function Parametros() {
     }
   };
 
+  const handleAdd = () => {
+    setParametrosData([newData, ...parametrosData]);
+    setAddDialogOpen(false);
+    setNewData({
+      tipo: "",
+      anoVigencia: 0,
+      anoDesde: 0,
+      anoHasta: 0,
+      tasaFija: "",
+      uva: ""
+    });
+  };
+
+  const handleDelete = () => {
+    if (selectedIndex !== null) {
+      const updatedData = parametrosData.filter((_, index) => index !== selectedIndex);
+      setParametrosData(updatedData);
+      setEditDialogOpen(false);
+      setSelectedIndex(null);
+    }
+  };
+
   const filteredData = parametrosData.filter((item) => {
     if (anoFilter === "") return true;
     const ano = parseInt(anoFilter);
@@ -98,20 +128,14 @@ export default function Parametros() {
   return <Layout>
       <div className="min-h-screen bg-background">
         <div className="p-6 space-y-6">
-          <Tabs defaultValue="segmentos" className="w-full">
-            <TabsList>
-              <TabsTrigger value="segmentos">Parámetros Segmentos</TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="segmentos" className="space-y-4">
-              <Card className="grun-shadow-lg border-border/50">
+          <Card className="grun-shadow-lg border-border/50">
                 <CardHeader className="space-y-4">
                   <div>
                     <CardTitle>Segmentos</CardTitle>
                   </div>
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div className="flex flex-wrap items-center gap-2">
-                      <Button variant="grun" size="sm">
+                      <Button variant="grun" size="sm" onClick={() => setAddDialogOpen(true)}>
                         <Plus className="h-4 w-4" />
                         Agregar
                       </Button>
@@ -170,8 +194,6 @@ export default function Parametros() {
                   </Table>
                 </CardContent>
               </Card>
-            </TabsContent>
-          </Tabs>
         </div>
 
         {/* Edit Dialog */}
@@ -233,12 +255,98 @@ export default function Parametros() {
                 />
               </div>
             </div>
+            <DialogFooter className="flex justify-between">
+              <Button 
+                variant="destructive" 
+                onClick={handleDelete}
+                className="bg-red-600 hover:bg-red-700"
+              >
+                <X className="h-4 w-4" />
+                Eliminar Segmento
+              </Button>
+              <div className="flex gap-2">
+                <Button variant="outline" onClick={() => setEditDialogOpen(false)}>
+                  Cancelar
+                </Button>
+                <Button variant="grun" onClick={handleEdit}>
+                  Confirmar
+                </Button>
+              </div>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+
+        {/* Add Dialog */}
+        <Dialog open={addDialogOpen} onOpenChange={setAddDialogOpen}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Agregar Parámetro</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4 py-4">
+              <div className="space-y-2">
+                <Label htmlFor="new-tipo">Tipo</Label>
+                <Input
+                  id="new-tipo"
+                  value={newData.tipo}
+                  onChange={(e) => setNewData({ ...newData, tipo: e.target.value })}
+                  placeholder="Ingrese el tipo"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="new-anoVigencia">Año Vigencia</Label>
+                <Input
+                  id="new-anoVigencia"
+                  type="number"
+                  value={newData.anoVigencia || ""}
+                  onChange={(e) => setNewData({ ...newData, anoVigencia: parseInt(e.target.value) || 0 })}
+                  placeholder="Ingrese el año de vigencia"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="new-anoDesde">Año Desde</Label>
+                <Input
+                  id="new-anoDesde"
+                  type="number"
+                  value={newData.anoDesde || ""}
+                  onChange={(e) => setNewData({ ...newData, anoDesde: parseInt(e.target.value) || 0 })}
+                  placeholder="Ingrese el año desde"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="new-anoHasta">Año Hasta</Label>
+                <Input
+                  id="new-anoHasta"
+                  type="number"
+                  value={newData.anoHasta || ""}
+                  onChange={(e) => setNewData({ ...newData, anoHasta: parseInt(e.target.value) || 0 })}
+                  placeholder="Ingrese el año hasta"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="new-tasaFija">Tasa Fija</Label>
+                <Input
+                  id="new-tasaFija"
+                  value={newData.tasaFija}
+                  onChange={(e) => setNewData({ ...newData, tasaFija: e.target.value })}
+                  placeholder="Ingrese la tasa fija"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="new-uva">Uva</Label>
+                <Input
+                  id="new-uva"
+                  value={newData.uva}
+                  onChange={(e) => setNewData({ ...newData, uva: e.target.value })}
+                  placeholder="Ingrese el valor UVA"
+                />
+              </div>
+            </div>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setEditDialogOpen(false)}>
+              <Button variant="outline" onClick={() => setAddDialogOpen(false)}>
                 Cancelar
               </Button>
-              <Button variant="grun" onClick={handleEdit}>
-                Confirmar
+              <Button variant="grun" onClick={handleAdd}>
+                Agregar
               </Button>
             </DialogFooter>
           </DialogContent>
