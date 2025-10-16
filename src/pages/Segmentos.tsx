@@ -17,7 +17,13 @@ export default function Segmentos() {
     anioHasta: string;
     tasaFija: string;
     uva: string;
-  }>>([]);
+  }>>([
+    { id: 1, tipo: "Residencial", anioVigencia: "2024", anioDesde: "0", anioHasta: "5", tasaFija: "8.5%", uva: "12.3%" },
+    { id: 2, tipo: "Comercial", anioVigencia: "2024", anioDesde: "5", anioHasta: "10", tasaFija: "9.2%", uva: "13.1%" },
+    { id: 3, tipo: "Industrial", anioVigencia: "2024", anioDesde: "10", anioHasta: "15", tasaFija: "10.0%", uva: "14.5%" },
+    { id: 4, tipo: "Residencial", anioVigencia: "2023", anioDesde: "0", anioHasta: "5", tasaFija: "7.8%", uva: "11.5%" },
+    { id: 5, tipo: "Comercial", anioVigencia: "2023", anioDesde: "5", anioHasta: "10", tasaFija: "8.5%", uva: "12.2%" },
+  ]);
   
   console.log('🔄 Componente renderizado. Total segmentos:', segmentosData.length);
   console.log('📋 Segmentos:', segmentosData);
