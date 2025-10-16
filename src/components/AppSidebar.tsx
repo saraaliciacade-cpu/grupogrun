@@ -217,18 +217,6 @@ export function AppSidebar() {
                       </NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <NavLink 
-                        to="/parametros/segmentos"
-                        className={({ isActive }) => 
-                          `flex items-center gap-3 pl-14 pr-6 py-2 text-white hover:bg-white/10 transition-colors ${isActive ? 'bg-white/10' : ''}`
-                        }
-                      >
-                        <span>Segmentos</span>
-                      </NavLink>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
                 </CollapsibleContent>
               </Collapsible>
             </SidebarMenu>

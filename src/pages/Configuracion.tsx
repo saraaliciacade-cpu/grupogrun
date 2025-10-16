@@ -2,14 +2,17 @@ import { Layout } from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Configuracion() {
+  const navigate = useNavigate();
+  
   const configSections = [
-    { title: "Plazos", description: "Configurar plazos de operaciones" },
-    { title: "Segmentos", description: "Administrar segmentos de clientes" },
-    { title: "Parámetros", description: "Ajustes generales del sistema" },
-    { title: "Bancos", description: "Gestión de entidades bancarias" },
-    { title: "Empresas", description: "Administrar empresas del grupo" },
+    { title: "Plazos", description: "Configurar plazos de operaciones", route: "/configuracion/plazos" },
+    { title: "Segmentos", description: "Administrar segmentos de clientes", route: "/configuracion/segmentos" },
+    { title: "Parámetros", description: "Ajustes generales del sistema", route: "/parametros/generales" },
+    { title: "Bancos", description: "Gestión de entidades bancarias", route: "/bancos" },
+    { title: "Empresas", description: "Administrar empresas del grupo", route: "/empresas" },
   ];
 
   return (
@@ -28,6 +31,7 @@ export default function Configuracion() {
                   key={section.title}
                   variant="outline"
                   className="h-auto justify-between p-4 border-border/50 hover:border-primary/30 hover:bg-accent/50"
+                  onClick={() => navigate(section.route)}
                 >
                   <div className="text-left">
                     <div className="font-semibold text-title">{section.title}</div>
