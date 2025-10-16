@@ -9,17 +9,15 @@ import { Search, Edit, Plus, Download, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Segmentos() {
-  const [segmentosData, setSegmentosData] = useState([
-    {
-      id: 1,
-      tipo: "Tipo A",
-      anioVigencia: "2024",
-      anioDesde: "2024",
-      anioHasta: "2025",
-      tasaFija: "5.5",
-      uva: "10.2"
-    }
-  ]);
+  const [segmentosData, setSegmentosData] = useState<Array<{
+    id: number;
+    tipo: string;
+    anioVigencia: string;
+    anioDesde: string;
+    anioHasta: string;
+    tasaFija: string;
+    uva: string;
+  }>>([]);
   
   const [searchTerm, setSearchTerm] = useState("");
   const [editDialogOpen, setEditDialogOpen] = useState(false);
