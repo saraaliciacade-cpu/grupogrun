@@ -12,15 +12,12 @@ export default function Segmentos() {
   const [segmentosData, setSegmentosData] = useState([
     {
       id: 1,
-      descripcion: "Segmento A"
-    },
-    {
-      id: 2,
-      descripcion: "Segmento B"
-    },
-    {
-      id: 3,
-      descripcion: "Segmento C"
+      tipo: "Tipo A",
+      anioVigencia: "2024",
+      anioDesde: "2024",
+      anioHasta: "2025",
+      tasaFija: "5.5",
+      uva: "10.2"
     }
   ]);
   
@@ -28,12 +25,33 @@ export default function Segmentos() {
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [editData, setEditData] = useState({ descripcion: "" });
-  const [newData, setNewData] = useState({ descripcion: "" });
+  const [editData, setEditData] = useState({ 
+    tipo: "", 
+    anioVigencia: "", 
+    anioDesde: "", 
+    anioHasta: "", 
+    tasaFija: "", 
+    uva: "" 
+  });
+  const [newData, setNewData] = useState({ 
+    tipo: "", 
+    anioVigencia: "", 
+    anioDesde: "", 
+    anioHasta: "", 
+    tasaFija: "", 
+    uva: "" 
+  });
 
   const openEditDialog = (index: number) => {
     setSelectedIndex(index);
-    setEditData({ descripcion: segmentosData[index].descripcion });
+    setEditData({ 
+      tipo: segmentosData[index].tipo,
+      anioVigencia: segmentosData[index].anioVigencia,
+      anioDesde: segmentosData[index].anioDesde,
+      anioHasta: segmentosData[index].anioHasta,
+      tasaFija: segmentosData[index].tasaFija,
+      uva: segmentosData[index].uva
+    });
     setEditDialogOpen(true);
   };
 
@@ -51,7 +69,14 @@ export default function Segmentos() {
     const newId = Math.max(...segmentosData.map(s => s.id), 0) + 1;
     setSegmentosData([{ id: newId, ...newData }, ...segmentosData]);
     setAddDialogOpen(false);
-    setNewData({ descripcion: "" });
+    setNewData({ 
+      tipo: "", 
+      anioVigencia: "", 
+      anioDesde: "", 
+      anioHasta: "", 
+      tasaFija: "", 
+      uva: "" 
+    });
   };
 
   const handleDelete = () => {
@@ -64,7 +89,8 @@ export default function Segmentos() {
   };
 
   const filteredSegmentos = segmentosData.filter(segmento => 
-    segmento.descripcion.toLowerCase().includes(searchTerm.toLowerCase())
+    segmento.tipo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    segmento.anioVigencia.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -102,14 +128,24 @@ export default function Segmentos() {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Descripción</TableHead>
+                      <TableHead>Tipo</TableHead>
+                      <TableHead>Año Vigencia</TableHead>
+                      <TableHead>Año Desde</TableHead>
+                      <TableHead>Año Hasta</TableHead>
+                      <TableHead>Tasa Fija</TableHead>
+                      <TableHead>Uva</TableHead>
                       <TableHead className="w-[100px]"></TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {filteredSegmentos.map(segmento => (
                       <TableRow key={segmento.id}>
-                        <TableCell className="font-medium">{segmento.descripcion}</TableCell>
+                        <TableCell className="font-medium">{segmento.tipo}</TableCell>
+                        <TableCell>{segmento.anioVigencia}</TableCell>
+                        <TableCell>{segmento.anioDesde}</TableCell>
+                        <TableCell>{segmento.anioHasta}</TableCell>
+                        <TableCell>{segmento.tasaFija}</TableCell>
+                        <TableCell>{segmento.uva}</TableCell>
                         <TableCell>
                           <Button 
                             variant="ghost" 
@@ -136,11 +172,51 @@ export default function Segmentos() {
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="descripcion">Descripción</Label>
+                <Label htmlFor="tipo">Tipo</Label>
                 <Input
-                  id="descripcion"
-                  value={editData.descripcion}
-                  onChange={(e) => setEditData({ ...editData, descripcion: e.target.value })}
+                  id="tipo"
+                  value={editData.tipo}
+                  onChange={(e) => setEditData({ ...editData, tipo: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="anioVigencia">Año Vigencia</Label>
+                <Input
+                  id="anioVigencia"
+                  value={editData.anioVigencia}
+                  onChange={(e) => setEditData({ ...editData, anioVigencia: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="anioDesde">Año Desde</Label>
+                <Input
+                  id="anioDesde"
+                  value={editData.anioDesde}
+                  onChange={(e) => setEditData({ ...editData, anioDesde: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="anioHasta">Año Hasta</Label>
+                <Input
+                  id="anioHasta"
+                  value={editData.anioHasta}
+                  onChange={(e) => setEditData({ ...editData, anioHasta: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="tasaFija">Tasa Fija</Label>
+                <Input
+                  id="tasaFija"
+                  value={editData.tasaFija}
+                  onChange={(e) => setEditData({ ...editData, tasaFija: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="uva">Uva</Label>
+                <Input
+                  id="uva"
+                  value={editData.uva}
+                  onChange={(e) => setEditData({ ...editData, uva: e.target.value })}
                 />
               </div>
             </div>
@@ -173,12 +249,57 @@ export default function Segmentos() {
             </DialogHeader>
             <div className="space-y-4 py-4">
               <div className="space-y-2">
-                <Label htmlFor="new-descripcion">Descripción</Label>
+                <Label htmlFor="new-tipo">Tipo</Label>
                 <Input
-                  id="new-descripcion"
-                  value={newData.descripcion}
-                  onChange={(e) => setNewData({ ...newData, descripcion: e.target.value })}
-                  placeholder="Ingrese la descripción del segmento"
+                  id="new-tipo"
+                  value={newData.tipo}
+                  onChange={(e) => setNewData({ ...newData, tipo: e.target.value })}
+                  placeholder="Ingrese el tipo"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="new-anioVigencia">Año Vigencia</Label>
+                <Input
+                  id="new-anioVigencia"
+                  value={newData.anioVigencia}
+                  onChange={(e) => setNewData({ ...newData, anioVigencia: e.target.value })}
+                  placeholder="Ingrese el año de vigencia"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="new-anioDesde">Año Desde</Label>
+                <Input
+                  id="new-anioDesde"
+                  value={newData.anioDesde}
+                  onChange={(e) => setNewData({ ...newData, anioDesde: e.target.value })}
+                  placeholder="Ingrese el año desde"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="new-anioHasta">Año Hasta</Label>
+                <Input
+                  id="new-anioHasta"
+                  value={newData.anioHasta}
+                  onChange={(e) => setNewData({ ...newData, anioHasta: e.target.value })}
+                  placeholder="Ingrese el año hasta"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="new-tasaFija">Tasa Fija</Label>
+                <Input
+                  id="new-tasaFija"
+                  value={newData.tasaFija}
+                  onChange={(e) => setNewData({ ...newData, tasaFija: e.target.value })}
+                  placeholder="Ingrese la tasa fija"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="new-uva">Uva</Label>
+                <Input
+                  id="new-uva"
+                  value={newData.uva}
+                  onChange={(e) => setNewData({ ...newData, uva: e.target.value })}
+                  placeholder="Ingrese el valor UVA"
                 />
               </div>
             </div>
