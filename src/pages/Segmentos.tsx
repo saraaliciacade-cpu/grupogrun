@@ -19,6 +19,9 @@ export default function Segmentos() {
     uva: string;
   }>>([]);
   
+  console.log('🔄 Componente renderizado. Total segmentos:', segmentosData.length);
+  console.log('📋 Segmentos:', segmentosData);
+  
   const [searchTerm, setSearchTerm] = useState("");
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [addDialogOpen, setAddDialogOpen] = useState(false);
@@ -64,8 +67,15 @@ export default function Segmentos() {
   };
 
   const handleAdd = () => {
+    console.log('🔵 handleAdd llamado');
+    console.log('📝 Datos a agregar:', newData);
+    console.log('📊 Datos actuales:', segmentosData);
+    
     const newId = Math.max(...segmentosData.map(s => s.id), 0) + 1;
-    setSegmentosData([{ id: newId, ...newData }, ...segmentosData]);
+    const nuevoSegmento = { id: newId, ...newData };
+    console.log('✅ Nuevo segmento creado:', nuevoSegmento);
+    
+    setSegmentosData([nuevoSegmento, ...segmentosData]);
     setAddDialogOpen(false);
     setNewData({ 
       tipo: "", 
