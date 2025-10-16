@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
-import { Search, Edit, Plus, Download, X } from "lucide-react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
+import { Search, Edit, Plus, Download, X, Filter, ArrowLeftCircle } from "lucide-react";
 import { useState } from "react";
 
 export default function Segmentos() {
@@ -29,6 +30,8 @@ export default function Segmentos() {
   console.log('📋 Segmentos:', segmentosData);
   
   const [searchTerm, setSearchTerm] = useState("");
+  const [filterOpen, setFilterOpen] = useState(false);
+  const [anoFilter, setAnoFilter] = useState("");
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -48,6 +51,10 @@ export default function Segmentos() {
     tasaFija: "", 
     uva: "" 
   });
+
+  const clearFilters = () => {
+    setAnoFilter("");
+  };
 
   const openEditDialog = (index: number) => {
     setSelectedIndex(index);
@@ -102,10 +109,18 @@ export default function Segmentos() {
     }
   };
 
-  const filteredSegmentos = segmentosData.filter(segmento => 
-    segmento.tipo.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    segmento.anioVigencia.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredSegmentos = segmentosData.filter(segmento => {
+    // Filtro por búsqueda de texto
+    const matchesSearch = segmento.tipo.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      segmento.anioVigencia.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    // Filtro por año
+    if (anoFilter === "") return matchesSearch;
+    const ano = parseInt(anoFilter);
+    const matchesYear = ano >= parseInt(segmento.anioDesde) && ano <= parseInt(segmento.anioHasta);
+    
+    return matchesSearch && matchesYear;
+  });
 
   return (
     <Layout>
@@ -125,15 +140,20 @@ export default function Segmentos() {
                     Exportar
                   </Button>
                 </div>
-                <div className="relative flex items-center">
-                  <Search className="absolute left-3 h-4 w-4 text-muted-foreground" />
-                  <Input 
-                    type="text" 
-                    placeholder="Buscar segmento" 
-                    className="w-[200px] pl-9"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
+                <div className="flex items-center gap-2">
+                  <div className="relative flex items-center">
+                    <Search className="absolute left-3 h-4 w-4 text-muted-foreground" />
+                    <Input 
+                      type="text" 
+                      placeholder="Buscar segmento" 
+                      className="w-[200px] pl-9"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                  </div>
+                  <Button variant="ghost" size="icon" onClick={() => setFilterOpen(true)}>
+                    <Filter className="h-4 w-4" />
+                  </Button>
                 </div>
               </div>
             </CardHeader>
@@ -327,6 +347,35 @@ export default function Segmentos() {
             </DialogFooter>
           </DialogContent>
         </Dialog>
+
+        {/* Filter Sidebar */}
+        <Sheet open={filterOpen} onOpenChange={setFilterOpen}>
+          <SheetContent side="right" className="w-[400px] bg-background/95 backdrop-blur-xl border-border/50">
+            <SheetHeader>
+              <div className="flex items-center justify-between">
+                <SheetTitle>Filtros</SheetTitle>
+              </div>
+            </SheetHeader>
+            <div className="space-y-6 py-6">
+              <div className="space-y-2">
+                <Label htmlFor="filter-ano">Año</Label>
+                <Input
+                  id="filter-ano"
+                  type="number"
+                  value={anoFilter}
+                  onChange={(e) => setAnoFilter(e.target.value)}
+                  placeholder="Buscar por año..."
+                />
+              </div>
+              <div className="pt-4">
+                <Button variant="grun" className="w-full gap-2 h-auto py-3 whitespace-normal" onClick={clearFilters}>
+                  <ArrowLeftCircle className="h-5 w-5 shrink-0" />
+                  <span>Click Acá para volver a ver todos los Segmentos</span>
+                </Button>
+              </div>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </Layout>
   );
