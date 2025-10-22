@@ -48,9 +48,10 @@ export default function Cotizacion() {
 
         {/* Dialog de Nuevo Préstamo */}
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-          <DialogContent className="max-w-md p-0 gap-0 overflow-hidden bg-background">
-            {/* Header con gradiente verde lujoso */}
-            <div className="relative bg-gradient-to-br from-primary via-primary to-primary/95 text-white p-8 pb-14 overflow-hidden">
+          <DialogContent className="max-w-md w-[calc(100vw-2rem)] max-h-[90vh] p-0 gap-0 overflow-hidden bg-background">
+            <div className="overflow-y-auto max-h-[90vh]">
+              {/* Header con gradiente verde lujoso */}
+              <div className="relative bg-gradient-to-br from-primary via-primary to-primary/95 text-white p-6 sm:p-8 pb-10 sm:pb-14 overflow-hidden">
               {/* Efectos de fondo */}
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent"></div>
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-primary-foreground/10 via-transparent to-transparent"></div>
@@ -59,7 +60,7 @@ export default function Cotizacion() {
               
               <div className="relative z-10">
                 <p className="text-xs font-medium text-white/90 mb-1 tracking-wide uppercase">Monto Disponible</p>
-                <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tight drop-shadow-lg">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 sm:mb-8 tracking-tight drop-shadow-lg">
                   $ 1,500.00
                 </h2>
                 <div className="flex flex-wrap gap-2">
@@ -81,23 +82,23 @@ export default function Cotizacion() {
                   </Button>
                   <Button 
                     size="icon"
-                    className="ml-auto bg-white text-primary hover:bg-white/95 rounded-full h-12 w-12 shadow-2xl hover:shadow-white/50 transition-all duration-200 hover:scale-110"
+                    className="ml-auto bg-white text-primary hover:bg-white/95 rounded-full h-10 w-10 sm:h-12 sm:w-12 shadow-2xl hover:shadow-white/50 transition-all duration-200 hover:scale-110"
                   >
-                    <Plus className="h-6 w-6" />
+                    <Plus className="h-5 w-5 sm:h-6 sm:w-6" />
                   </Button>
                 </div>
               </div>
             </div>
 
             {/* Formulario */}
-            <div className="p-6 space-y-4 bg-background">
+            <div className="p-4 sm:p-6 space-y-4 bg-background">
               <DialogHeader>
-                <DialogTitle>Datos del Préstamo</DialogTitle>
+                <DialogTitle className="text-lg sm:text-xl">Datos del Préstamo</DialogTitle>
               </DialogHeader>
 
-              <div className="space-y-4 mt-4">
+              <div className="space-y-3 sm:space-y-4 mt-4">
                 <div className="space-y-2">
-                  <Label htmlFor="cliente">Cliente</Label>
+                  <Label htmlFor="cliente" className="text-sm">Cliente</Label>
                   <Input 
                     id="cliente"
                     placeholder="Nombre del cliente"
@@ -107,7 +108,7 @@ export default function Cotizacion() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="tipoCredito">Tipo de Crédito</Label>
+                  <Label htmlFor="tipoCredito" className="text-sm">Tipo de Crédito</Label>
                   <Select value={formData.tipoCredito} onValueChange={(value) => setFormData({...formData, tipoCredito: value})}>
                     <SelectTrigger id="tipoCredito">
                       <SelectValue placeholder="Seleccionar tipo" />
@@ -121,9 +122,9 @@ export default function Cotizacion() {
                   </Select>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="monto">Monto</Label>
+                    <Label htmlFor="monto" className="text-sm">Monto</Label>
                     <div className="relative">
                       <DollarSign className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                       <Input 
@@ -138,7 +139,7 @@ export default function Cotizacion() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="plazo">Plazo (meses)</Label>
+                    <Label htmlFor="plazo" className="text-sm">Plazo (meses)</Label>
                     <Input 
                       id="plazo"
                       type="number"
@@ -150,7 +151,7 @@ export default function Cotizacion() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="tasa">Tasa de Interés (%)</Label>
+                  <Label htmlFor="tasa" className="text-sm">Tasa de Interés (%)</Label>
                   <Input 
                     id="tasa"
                     type="number"
@@ -161,7 +162,7 @@ export default function Cotizacion() {
                   />
                 </div>
 
-                <div className="flex gap-3 pt-4">
+                <div className="flex gap-3 pt-3 sm:pt-4 pb-2">
                   <Button variant="outline" className="flex-1" onClick={() => setDialogOpen(false)}>
                     Cancelar
                   </Button>
@@ -170,6 +171,7 @@ export default function Cotizacion() {
                   </Button>
                 </div>
               </div>
+            </div>
             </div>
           </DialogContent>
         </Dialog>
