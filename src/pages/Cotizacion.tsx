@@ -48,8 +48,8 @@ export default function Cotizacion() {
 
         {/* Dialog de Nuevo Préstamo */}
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-          <DialogContent className="max-w-md w-[calc(100vw-2rem)] max-h-[90vh] p-0 gap-0 overflow-hidden bg-background">
-            <div className="overflow-y-auto max-h-[90vh]">
+          <DialogContent className="max-w-md w-full h-full sm:h-auto sm:w-[calc(100vw-2rem)] max-h-screen sm:max-h-[90vh] p-0 gap-0 overflow-hidden bg-background sm:rounded-lg rounded-none inset-0 sm:inset-auto translate-x-0 translate-y-0 sm:translate-x-[-50%] sm:translate-y-[-50%] left-0 top-0 sm:left-[50%] sm:top-[50%]">
+            <div className="overflow-y-auto h-full sm:max-h-[90vh]">
               {/* Header con gradiente verde lujoso */}
               <div className="relative bg-gradient-to-br from-primary via-primary to-primary/95 text-white p-6 sm:p-8 pb-10 sm:pb-14 overflow-hidden">
               {/* Efectos de fondo */}
