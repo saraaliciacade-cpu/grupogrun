@@ -5,11 +5,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Plus, Calculator, FileText, DollarSign } from "lucide-react";
-import { useState } from "react";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { Plus, Calculator, FileText, DollarSign, Sun, Moon, Menu } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Cotizacion() {
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const [formData, setFormData] = useState({
     monto: "",
     plazo: "",
@@ -17,6 +19,22 @@ export default function Cotizacion() {
     cliente: "",
     tipoCredito: ""
   });
+
+  useEffect(() => {
+    const isDarkMode = localStorage.getItem("darkMode") === "true";
+    setIsDark(isDarkMode);
+  }, []);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !isDark;
+    setIsDark(newDarkMode);
+    localStorage.setItem("darkMode", String(newDarkMode));
+    if (newDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  };
 
   const handleSubmit = () => {
     console.log("Nuevo préstamo:", formData);
@@ -49,6 +67,26 @@ export default function Cotizacion() {
         {/* Dialog de Nuevo Préstamo */}
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogContent className="max-w-md w-full h-full sm:h-auto sm:w-[calc(100vw-2rem)] max-h-screen sm:max-h-[90vh] p-0 gap-0 overflow-hidden bg-background sm:rounded-lg rounded-none inset-0 sm:inset-auto translate-x-0 translate-y-0 sm:translate-x-[-50%] sm:translate-y-[-50%] left-0 top-0 sm:left-[50%] sm:top-[50%]">
+            {/* Header móvil con menú y tema - solo visible en móvil */}
+            <div className="sm:hidden sticky top-0 z-50 flex justify-between items-center p-4 bg-background border-b">
+              <div className="flex items-center gap-3">
+                <SidebarTrigger />
+                <h1 className="text-lg font-semibold text-title">Cotización</h1>
+              </div>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleDarkMode}
+                className="rounded-full"
+              >
+                {isDark ? (
+                  <Sun className="h-5 w-5 text-foreground" />
+                ) : (
+                  <Moon className="h-5 w-5 text-foreground" />
+                )}
+              </Button>
+            </div>
+            
             <div className="overflow-y-auto h-full sm:max-h-[90vh]">
               {/* Header con gradiente verde lujoso */}
               <div className="relative bg-gradient-to-br from-primary via-primary to-primary/95 text-white p-6 sm:p-8 pb-10 sm:pb-14 overflow-hidden">
