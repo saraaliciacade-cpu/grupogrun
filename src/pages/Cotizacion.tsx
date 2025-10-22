@@ -71,7 +71,7 @@ export default function Cotizacion() {
               {/* Header con gradiente verde lujoso que incluye barra de navegación en móvil */}
               <div className="relative bg-gradient-to-br from-primary via-primary to-primary/95 text-white overflow-hidden">
                 {/* Header móvil con menú y tema - solo visible en móvil */}
-                <div className="sm:hidden sticky top-0 z-50 flex justify-between items-center p-4 pb-3">
+                <div className="sm:hidden sticky top-0 z-50 flex justify-between items-center p-4 pb-4">
                   <div className="flex items-center gap-3">
                     <SidebarTrigger className="text-white hover:bg-white/10" />
                     <h1 className="text-lg font-semibold text-white">Cotización</h1>
@@ -91,7 +91,7 @@ export default function Cotizacion() {
                 </div>
                 
                 {/* Contenido del header con efectos y monto */}
-                <div className="p-6 sm:p-8 pb-10 sm:pb-14 pt-3 sm:pt-6">
+                <div className="p-6 sm:p-8 pb-14 sm:pb-16 pt-6 sm:pt-8">
               {/* Efectos de fondo */}
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent"></div>
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-primary-foreground/10 via-transparent to-transparent"></div>
@@ -99,11 +99,11 @@ export default function Cotizacion() {
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
               
               <div className="relative z-10">
-                <p className="text-xs font-medium text-white/90 mb-1 tracking-wide uppercase">Monto Disponible</p>
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 sm:mb-8 tracking-tight drop-shadow-lg">
+                <p className="text-xs font-medium text-white/90 mb-2 tracking-wide uppercase">Monto Disponible</p>
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 sm:mb-10 tracking-tight drop-shadow-lg">
                   $ 1,500.00
                 </h2>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   <Button 
                     variant="secondary" 
                     size="sm" 
