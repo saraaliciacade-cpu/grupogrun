@@ -132,7 +132,7 @@ export default function Cotizacion() {
               </div>
 
             {/* Formulario */}
-            <div className="p-4 sm:p-6 space-y-4 bg-background">
+            <div className="p-4 sm:p-6 space-y-4 bg-background rounded-t-3xl -mt-6 relative z-10">
               <DialogHeader>
                 <DialogTitle className="text-lg sm:text-xl">Datos del Préstamo</DialogTitle>
               </DialogHeader>
