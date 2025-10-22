@@ -49,17 +49,24 @@ export default function Cotizacion() {
         {/* Dialog de Nuevo Préstamo */}
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogContent className="max-w-md p-0 gap-0 overflow-hidden bg-background">
-            {/* Header con gradiente verde */}
-            <div className="relative bg-gradient-to-br from-primary via-primary/90 to-primary/80 text-white p-8 pb-12">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary-foreground/10 via-transparent to-transparent"></div>
-              <div className="relative">
-                <p className="text-sm text-white/80 mb-2">Monto Disponible</p>
-                <h2 className="text-4xl font-bold mb-6">$ 1,500.00</h2>
-                <div className="flex gap-3">
+            {/* Header con gradiente verde lujoso */}
+            <div className="relative bg-gradient-to-br from-primary via-primary to-primary/95 text-white p-8 pb-14 overflow-hidden">
+              {/* Efectos de fondo */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-primary-foreground/10 via-transparent to-transparent"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+              
+              <div className="relative z-10">
+                <p className="text-xs font-medium text-white/90 mb-1 tracking-wide uppercase">Monto Disponible</p>
+                <h2 className="text-5xl md:text-6xl font-bold text-white mb-8 tracking-tight drop-shadow-lg">
+                  $ 1,500.00
+                </h2>
+                <div className="flex flex-wrap gap-2">
                   <Button 
                     variant="secondary" 
                     size="sm" 
-                    className="bg-white/20 text-white border-white/30 hover:bg-white/30 backdrop-blur-sm"
+                    className="bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg"
                   >
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular
@@ -67,16 +74,16 @@ export default function Cotizacion() {
                   <Button 
                     variant="secondary" 
                     size="sm"
-                    className="bg-white/20 text-white border-white/30 hover:bg-white/30 backdrop-blur-sm"
+                    className="bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg"
                   >
                     <FileText className="h-4 w-4 mr-2" />
                     Reporte
                   </Button>
                   <Button 
                     size="icon"
-                    className="ml-auto bg-white text-primary hover:bg-white/90 rounded-full h-10 w-10 shadow-lg"
+                    className="ml-auto bg-white text-primary hover:bg-white/95 rounded-full h-12 w-12 shadow-2xl hover:shadow-white/50 transition-all duration-200 hover:scale-110"
                   >
-                    <Plus className="h-5 w-5" />
+                    <Plus className="h-6 w-6" />
                   </Button>
                 </div>
               </div>
