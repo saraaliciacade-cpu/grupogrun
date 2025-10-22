@@ -67,29 +67,31 @@ export default function Cotizacion() {
         {/* Dialog de Nuevo Préstamo */}
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogContent className="max-w-md w-full h-full sm:h-auto sm:w-[calc(100vw-2rem)] max-h-screen sm:max-h-[90vh] p-0 gap-0 overflow-hidden bg-background sm:rounded-lg rounded-none inset-0 sm:inset-auto translate-x-0 translate-y-0 sm:translate-x-[-50%] sm:translate-y-[-50%] left-0 top-0 sm:left-[50%] sm:top-[50%]">
-            {/* Header móvil con menú y tema - solo visible en móvil */}
-            <div className="sm:hidden sticky top-0 z-50 flex justify-between items-center p-4 bg-background border-b">
-              <div className="flex items-center gap-3">
-                <SidebarTrigger />
-                <h1 className="text-lg font-semibold text-title">Cotización</h1>
-              </div>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleDarkMode}
-                className="rounded-full"
-              >
-                {isDark ? (
-                  <Sun className="h-5 w-5 text-foreground" />
-                ) : (
-                  <Moon className="h-5 w-5 text-foreground" />
-                )}
-              </Button>
-            </div>
-            
             <div className="overflow-y-auto h-full sm:max-h-[90vh]">
-              {/* Header con gradiente verde lujoso */}
-              <div className="relative bg-gradient-to-br from-primary via-primary to-primary/95 text-white p-6 sm:p-8 pb-10 sm:pb-14 overflow-hidden">
+              {/* Header con gradiente verde lujoso que incluye barra de navegación en móvil */}
+              <div className="relative bg-gradient-to-br from-primary via-primary to-primary/95 text-white overflow-hidden">
+                {/* Header móvil con menú y tema - solo visible en móvil */}
+                <div className="sm:hidden sticky top-0 z-50 flex justify-between items-center p-4 pb-3">
+                  <div className="flex items-center gap-3">
+                    <SidebarTrigger className="text-white hover:bg-white/10" />
+                    <h1 className="text-lg font-semibold text-white">Cotización</h1>
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={toggleDarkMode}
+                    className="rounded-full text-white hover:bg-white/10"
+                  >
+                    {isDark ? (
+                      <Sun className="h-5 w-5" />
+                    ) : (
+                      <Moon className="h-5 w-5" />
+                    )}
+                  </Button>
+                </div>
+                
+                {/* Contenido del header con efectos y monto */}
+                <div className="p-6 sm:p-8 pb-10 sm:pb-14 pt-3 sm:pt-6">
               {/* Efectos de fondo */}
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent"></div>
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-primary-foreground/10 via-transparent to-transparent"></div>
@@ -126,7 +128,8 @@ export default function Cotizacion() {
                   </Button>
                 </div>
               </div>
-            </div>
+              </div>
+              </div>
 
             {/* Formulario */}
             <div className="p-4 sm:p-6 space-y-4 bg-background">
