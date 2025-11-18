@@ -89,8 +89,8 @@ export default function Dashboard() {
 
         {/* Recent Activity and Quick Actions */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Recent Activity */}
-          <Card className={`grun-shadow-md border-border/50 ${showAllActivity ? 'lg:col-span-2' : ''}`}>
+          {/* Recent Activity - segundo en móvil, primero en desktop */}
+          <Card className={`grun-shadow-md border-border/50 order-2 lg:order-1 ${showAllActivity ? 'lg:col-span-2' : ''}`}>
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
@@ -144,9 +144,9 @@ export default function Dashboard() {
             </CardContent>
           </Card>
 
-          {/* Quick Actions */}
+          {/* Quick Actions - primero en móvil, segundo en desktop */}
           {!showAllActivity && (
-            <Card className="grun-shadow-md border-border/50">
+            <Card className="grun-shadow-md border-border/50 order-1 lg:order-2">
               <CardHeader>
                 <CardTitle>Acciones Rápidas</CardTitle>
                 <CardDescription>Operaciones frecuentes</CardDescription>
