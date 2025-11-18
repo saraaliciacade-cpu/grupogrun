@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { Plus, Calculator, FileText, DollarSign, Sun, Moon, Menu, TrendingUp, TrendingDown, Users, CreditCard } from "lucide-react";
+import { Plus, Calculator, FileText, DollarSign, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Cotizacion() {
@@ -99,76 +99,15 @@ export default function Cotizacion() {
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
               
               <div className="relative z-10">
-                <p className="text-xs sm:text-sm font-medium text-white/90 mb-2 tracking-wide uppercase">Monto Disponible</p>
-                <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 sm:mb-10 tracking-tight drop-shadow-lg">
+                <p className="text-xs font-medium text-white/90 mb-2 tracking-wide uppercase">Monto Disponible</p>
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 sm:mb-10 tracking-tight drop-shadow-lg">
                   $ 1,500.00
                 </h2>
-                
-                {/* Estadísticas en grid 2x2 */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
-                  {/* Total Préstamos */}
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all">
-                    <div className="flex justify-between items-start mb-2">
-                      <p className="text-xs text-white/80 font-medium">Total Préstamos</p>
-                      <DollarSign className="h-4 w-4 text-green-300" />
-                    </div>
-                    <p className="text-xl font-bold text-white mb-1">$1,234,567</p>
-                    <div className="flex items-center gap-1">
-                      <TrendingUp className="h-3 w-3 text-green-300" />
-                      <span className="text-xs text-green-300 font-medium">+12.5%</span>
-                      <span className="text-xs text-white/60">vs mes anterior</span>
-                    </div>
-                  </div>
-
-                  {/* Clientes Activos */}
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all">
-                    <div className="flex justify-between items-start mb-2">
-                      <p className="text-xs text-white/80 font-medium">Clientes Activos</p>
-                      <Users className="h-4 w-4 text-blue-300" />
-                    </div>
-                    <p className="text-xl font-bold text-white mb-1">2,845</p>
-                    <div className="flex items-center gap-1">
-                      <TrendingUp className="h-3 w-3 text-green-300" />
-                      <span className="text-xs text-green-300 font-medium">+8.2%</span>
-                      <span className="text-xs text-white/60">vs mes anterior</span>
-                    </div>
-                  </div>
-
-                  {/* Tasa Promedio */}
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all">
-                    <div className="flex justify-between items-start mb-2">
-                      <p className="text-xs text-white/80 font-medium">Tasa Promedio</p>
-                      <TrendingUp className="h-4 w-4 text-purple-300" />
-                    </div>
-                    <p className="text-xl font-bold text-white mb-1">15.3%</p>
-                    <div className="flex items-center gap-1">
-                      <TrendingDown className="h-3 w-3 text-red-300" />
-                      <span className="text-xs text-red-300 font-medium">-2.1%</span>
-                      <span className="text-xs text-white/60">vs mes anterior</span>
-                    </div>
-                  </div>
-
-                  {/* Cuotas Pendientes */}
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all">
-                    <div className="flex justify-between items-start mb-2">
-                      <p className="text-xs text-white/80 font-medium">Cuotas Pendientes</p>
-                      <CreditCard className="h-4 w-4 text-orange-300" />
-                    </div>
-                    <p className="text-xl font-bold text-white mb-1">1,234</p>
-                    <div className="flex items-center gap-1">
-                      <TrendingUp className="h-3 w-3 text-green-300" />
-                      <span className="text-xs text-green-300 font-medium">+5.4%</span>
-                      <span className="text-xs text-white/60">vs mes anterior</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Botones de acción */}
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-3">
                   <Button 
                     variant="secondary" 
-                    size="sm"
-                    className="flex-1 bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg"
+                    size="sm" 
+                    className="bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg"
                   >
                     <Calculator className="h-4 w-4 mr-2" />
                     Calcular
@@ -176,16 +115,16 @@ export default function Cotizacion() {
                   <Button 
                     variant="secondary" 
                     size="sm"
-                    className="flex-1 bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg"
+                    className="bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg"
                   >
                     <FileText className="h-4 w-4 mr-2" />
                     Reporte
                   </Button>
                   <Button 
                     size="icon"
-                    className="bg-white text-primary hover:bg-white/95 rounded-full h-10 w-10 shadow-2xl hover:shadow-white/50 transition-all duration-200 hover:scale-110"
+                    className="ml-auto bg-white text-primary hover:bg-white/95 rounded-full h-10 w-10 sm:h-12 sm:w-12 shadow-2xl hover:shadow-white/50 transition-all duration-200 hover:scale-110"
                   >
-                    <Plus className="h-5 w-5" />
+                    <Plus className="h-5 w-5 sm:h-6 sm:w-6" />
                   </Button>
                 </div>
               </div>
