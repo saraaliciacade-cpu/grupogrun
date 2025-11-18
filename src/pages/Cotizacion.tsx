@@ -99,32 +99,39 @@ export default function Cotizacion() {
               <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
               
               <div className="relative z-10">
-                <p className="text-xs font-medium text-white/90 mb-2 tracking-wide uppercase">Monto Disponible</p>
-                <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 sm:mb-10 tracking-tight drop-shadow-lg">
+                <p className="text-xs sm:text-sm font-medium text-white/90 mb-2 tracking-wide uppercase">Monto Disponible</p>
+                <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6 sm:mb-10 tracking-tight drop-shadow-lg">
                   $ 1,500.00
                 </h2>
-                <div className="flex flex-wrap gap-3">
+                
+                {/* Grid 2x2 para móvil, flex row para desktop */}
+                <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:flex-wrap">
                   <Button 
                     variant="secondary" 
-                    size="sm" 
-                    className="bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg"
+                    className="bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg h-20 sm:h-auto flex-col sm:flex-row gap-2 sm:gap-2"
                   >
-                    <Calculator className="h-4 w-4 mr-2" />
-                    Calcular
+                    <Calculator className="h-5 w-5 sm:h-4 sm:w-4" />
+                    <span className="text-xs sm:text-sm font-medium">Calcular</span>
                   </Button>
                   <Button 
-                    variant="secondary" 
-                    size="sm"
-                    className="bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg"
+                    variant="secondary"
+                    className="bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg h-20 sm:h-auto flex-col sm:flex-row gap-2 sm:gap-2"
                   >
-                    <FileText className="h-4 w-4 mr-2" />
-                    Reporte
+                    <FileText className="h-5 w-5 sm:h-4 sm:w-4" />
+                    <span className="text-xs sm:text-sm font-medium">Reporte</span>
                   </Button>
                   <Button 
-                    size="icon"
-                    className="ml-auto bg-white text-primary hover:bg-white/95 rounded-full h-10 w-10 sm:h-12 sm:w-12 shadow-2xl hover:shadow-white/50 transition-all duration-200 hover:scale-110"
+                    variant="secondary"
+                    className="bg-white/15 text-white border-white/25 hover:bg-white/25 backdrop-blur-md transition-all duration-200 hover:scale-105 shadow-lg h-20 sm:h-auto flex-col sm:flex-row gap-2 sm:gap-2"
                   >
-                    <Plus className="h-5 w-5 sm:h-6 sm:w-6" />
+                    <DollarSign className="h-5 w-5 sm:h-4 sm:w-4" />
+                    <span className="text-xs sm:text-sm font-medium">Historial</span>
+                  </Button>
+                  <Button 
+                    className="bg-white text-primary hover:bg-white/95 shadow-2xl hover:shadow-white/50 transition-all duration-200 hover:scale-105 h-20 sm:h-auto flex-col sm:flex-row gap-2 sm:gap-2"
+                  >
+                    <Plus className="h-6 w-6 sm:h-5 sm:w-5" />
+                    <span className="text-xs sm:text-sm font-semibold">Nuevo</span>
                   </Button>
                 </div>
               </div>
