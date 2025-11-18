@@ -56,30 +56,30 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="p-8 space-y-8">
-        {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8">
+        {/* Stats Grid - 2x2 en móvil */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
           {stats.map((stat) => (
             <Card key={stat.title} className="grun-shadow-md hover:grun-shadow-lg transition-shadow border-border/50">
-              <CardHeader className="pb-3">
+              <CardHeader className="pb-2 sm:pb-3 px-3 sm:px-6 pt-3 sm:pt-6">
                 <div className="flex items-center justify-between">
-                  <CardDescription className="text-sm font-medium">{stat.title}</CardDescription>
-                  <stat.icon className={`h-5 w-5 ${stat.color}`} />
+                  <CardDescription className="text-xs sm:text-sm font-medium leading-tight">{stat.title}</CardDescription>
+                  <stat.icon className={`h-4 w-4 sm:h-5 sm:w-5 ${stat.color} flex-shrink-0`} />
                 </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="px-3 sm:px-6 pb-3 sm:pb-6">
                 <div className="space-y-1">
-                  <p className="text-3xl font-bold text-foreground">{stat.value}</p>
-                  <div className="flex items-center gap-1">
+                  <p className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground">{stat.value}</p>
+                  <div className="flex items-center gap-0.5 sm:gap-1 flex-wrap">
                     {stat.trend === "up" ? (
-                      <ArrowUpRight className="h-4 w-4 text-green-600" />
+                      <ArrowUpRight className="h-3 w-3 sm:h-4 sm:w-4 text-green-600 flex-shrink-0" />
                     ) : (
-                      <ArrowDownRight className="h-4 w-4 text-red-600" />
+                      <ArrowDownRight className="h-3 w-3 sm:h-4 sm:w-4 text-red-600 flex-shrink-0" />
                     )}
-                    <span className={`text-sm font-medium ${stat.trend === "up" ? "text-green-600" : "text-red-600"}`}>
+                    <span className={`text-xs sm:text-sm font-medium ${stat.trend === "up" ? "text-green-600" : "text-red-600"}`}>
                       {stat.change}
                     </span>
-                    <span className="text-sm text-muted-foreground">vs mes anterior</span>
+                    <span className="text-xs sm:text-sm text-muted-foreground hidden sm:inline">vs mes anterior</span>
                   </div>
                 </div>
               </CardContent>
